@@ -22,337 +22,303 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="docs" data-spy="scroll" data-target="#table-of-contents" data-offset="69">
-    <header class="container-fluid navbar">
-      <div class="row">
-        <div class="col-sm-4">
-          <a class="navbar-brand" href="../../../"><img alt="Brand" src="../../../img/logo.png">DataStax C/C++ Driver</a>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="list-inline" role="nav">
-                <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
-                <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
-                <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
-              </ul>
-            </div>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
           </div>
-          <div class="row">
-            <div class="col-md-8">
-              <form id="search" class="form-search dropdown visible-lg-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
-                <div class="form-group has-feedback">
-                  <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('v2.4')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
-                </div>
-                <ul class="dropdown-menu search-results" role="menu">
-                  <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  v2.4
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li class="disabled"><a href="./">v2.4</a></li>
+                
+                  <li><a href="../../../v2.3/topics/basics/handling_results/">v2.3</a></li>
+                
+                  <li><a href="../../../v2.2/topics/basics/handling_results/">v2.2</a></li>
+                
+                  <li><a href="../../../v2.1/topics/basics/handling_results/">v2.1</a></li>
+                
+                  <li><a href="../../../v2.0/topics/basics/handling_results/">v2.0</a></li>
+                
+                  <li><a href="../../../v1.0/topics/basics/handling_results/">v1.0</a></li>
+                
                 </ul>
-              </form>
+              </div>
             </div>
-            <div class="col-md-4">
-              <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
-            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('v2.4')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
           </div>
         </div>
       </div>
-      <div class="row crumbs-wrapper">
-        <div class="col-md-12">
-          <nav id="crumbs" data-spy="affix" data-offset-top="130">
-            <ol class="breadcrumb">
-              
-              <li>
-                <div class="btn-group">
-                  <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    v2.4
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
-                  
-                    <li class="disabled"><a href="./">v2.4</a></li>
-                  
-                    <li><a href="../../../v2.3/topics/basics/handling_results/">v2.3</a></li>
-                  
-                    <li><a href="../../../v2.2/topics/basics/handling_results/">v2.2</a></li>
-                  
-                    <li><a href="../../../v2.1/topics/basics/handling_results/">v2.1</a></li>
-                  
-                    <li><a href="../../../v2.0/topics/basics/handling_results/">v2.0</a></li>
-                  
-                    <li><a href="../../../v1.0/topics/basics/handling_results/">v1.0</a></li>
-                  
-                  </ul>
-                </div>
-              </li>
-              
-              
-              
-              
-              <li><a href="../../../">Home</a></li>
-              
-              
-              
-              
-              
-              <li><a href="../../">Getting Started</a></li>
-              
-              
-              
-              
-              
-              <li><a href="../">Basics</a></li>
-              
-              
-              
-              
-              
-              <li class="active">Handling Results</li>
-              <li class="dropdown" id="table-of-contents">
-                <div class="btn-group">
-                  <button id="current-section" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                    Jump to&#8230; <span class="caret"></span><span class="sr-only">Table of Contents</span>
-                  </button>
-                  <ul class="dropdown-menu nav nav-pills nav-stacked">
-                    <li><a href="#handling-results">Page Top <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a></li>
-<li><a href="#rows-and-column-values">Rows and Column Values
-</a></li>
-<li><a href="#iterators">Iterators
-</a></li>
-<li><a href="#paging">Paging
-</a></li>
-                  </ul>
-                </div>
-              </li>
-              
-              
-              
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </header>
+    </div>
 
     <div class="container-fluid" id="content">
       <div class="row">
         <div class="col-md-3">
           <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
-            <h3>Contents</h3>
+            <h3><a href="../../../">Contents</a></h3>
             <ul class="nav nav-pills nav-stacked">
   
   
-  
-  <li>
-    <a href="../../../api/">API docs <small>index</small></a>
-  </li>
-  
-  
-  
-  
   <li class="active">
-    <a href="../../">Getting Started <small>page</small></a>
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
     <ul class="nav nav-pills nav-stacked">
   
   
-  
   <li>
-    <a href="../../building/">Building <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li class="active">
-    <a href="../">Basics <small>page</small></a>
-    <ul class="nav nav-pills nav-stacked">
-  
-  
-  
-  <li>
-    <a href="../keyspaces/">Keyspaces <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../futures/">Futures <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../binding_parameters/">Binding Parameters <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li class="active">
-    <a href="./" class="current">Handling Results <small>page</small></a>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
     
   </li>
   
   
+  <li class="active">
+    <a href="../">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
   
   
   <li>
-    <a href="../schema_metadata/">Schema Metadata <small>page</small></a>
+    <a href="../keyspaces/">
+      Keyspaces <small>page</small>
+      
+    </a>
+    
   </li>
-  
-  
   
   
   <li>
-    <a href="../uuids/">UUIDs <small>page</small></a>
+    <a href="../futures/">
+      Futures <small>page</small>
+      
+    </a>
+    
   </li>
-  
-  
   
   
   <li>
-    <a href="../date_and_time/">The date and time Types <small>page</small></a>
+    <a href="../binding_parameters/">
+      Binding Parameters <small>page</small>
+      
+    </a>
+    
   </li>
   
   
-  
-  
-  <li>
-    <a href="../data_types/">Data Types <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../consistency/">Consistency <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../prepared_statements/">Prepared Statements <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../client_side_timestamps/">Client-side timestamps <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../tuples/">Tuples <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../user_defined_types/">User Defined Types (UDTs) <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../batches/">Batches <small>page</small></a>
-  </li>
-  
+  <li class="active">
+    <a href="./" class="current">
+      Handling Results <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
   
 </ul>
 
   </li>
   
   
-  
-  
   <li>
-    <a href="../../security/">Security <small>page</small></a>
+    <a href="../schema_metadata/">
+      Schema Metadata <small>page</small>
+      
+    </a>
+    
   </li>
   
   
-  
-  
   <li>
-    <a href="../../logging/">Logging <small>page</small></a>
+    <a href="../uuids/">
+      UUIDs <small>page</small>
+      
+    </a>
+    
   </li>
   
   
-  
-  
   <li>
-    <a href="../../faq/">FAQ <small>page</small></a>
+    <a href="../batches/">
+      Batches <small>page</small>
+      
+    </a>
+    
   </li>
   
   
-  
-  
   <li>
-    <a href="../../metrics/">Metrics <small>page</small></a>
+    <a href="../consistency/">
+      Consistency <small>page</small>
+      
+    </a>
+    
   </li>
   
   
-  
-  
   <li>
-    <a href="../../configuration/">Configuration <small>page</small></a>
+    <a href="../prepared_statements/">
+      Prepared Statements <small>page</small>
+      
+    </a>
+    
   </li>
-  
-  
-  
-  
-  <li>
-    <a href="../../testing/">Testing <small>page</small></a>
-  </li>
-  
   
 </ul>
 
   </li>
   
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
   
 </ul>
 
           </div>
         </div>
         <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Basics</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Handling Results</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
           
 
 <h1 id="handling-results" class="target">Handling Results<a class="anchor" href="#handling-results" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p>The <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a> object
-is typically returned for <code>SELECT</code> statements. For mutations (<code>INSERT</code>, <code>UPDATE</code>,
-and <code>DELETE</code>) only a status code will be present and can be accessed using
-<code>cass_future_error_code()</code>. However, when using lightweight transactions a
-result object will be available to check the status of the transaction. The
-result object is obtained from executed statements’ future object.</p>
+<p>The <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a> object is typically returned for <code>SELECT</code> statments. For mutations (<code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code>) only a status code will be present and can be accessed using <code>cass_future_error_code()</code>. However, when using lightweight transactions a result object will be available to check the status of the transaction. The result object is obtained from executed statements’ future object.</p>
 
-<p><strong>Important</strong>: Rows, column values, collections, decimals, strings, and bytes
-objects are all invalidated when the result object is freed. All of these
-objects point to memory held by the result. This allows the driver to avoid
-unnecessarily copying data.</p>
+<p><strong>Important</strong>: Rows, column values, collections, decimals, strings, and bytes objects are all invalidated when the result object is freed. All of these objects point to memory held by the result. This allows the driver to avoid unneccessarily copying data.</p>
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
 
 <span class="cm">/* Process result */</span>
 
 <span class="nb">cass_result_free</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 </code></pre>
-<p><em>Note</em>: The result object is immutable and can be accessed by multiple threads concurrently.</p>
+<p><em>Note</em>: The result object is immutable and can be accessed by mutliple threads concurrently.</p>
 
 <h2 id="rows-and-column-values" class="target">Rows and Column Values<a class="anchor" href="#rows-and-column-values" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>The result object represents a collection of rows. The first row, if present,
-can be obtained using <code>cass_result_first_row()</code>. Multiple rows are accessed
-using a <a href="http://datastax.github.io/cpp-driver/api/CassIterator/"><code>CassIterator</code></a>
-object. After a row has been retrieved, the column value(s) can be accessed from
-a row by either index or by name. The iterator object can also be used with
-enumerated column values.</p>
+<p>The result object represents a collection of rows. The first row, if present, can be obtained using <code>cass_result_first_row()</code>. Multiple rows are accessed using a <a href="http://datastax.github.io/cpp-driver/api/CassIterator/"><code>CassIterator</code></a> object. After a row has been retrieved, the column value(s) can be accessed from a row by either index or by name. The iterator object can also be used with enumerated column values.</p>
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassRow</span><span class="o">*</span> <span class="n">row</span> <span class="o">=</span> <span class="nb">cass_result_first_row</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 
 <span class="cm">/* Get the first column value using the index */</span>
@@ -363,27 +329,22 @@ enumerated column values.</p>
 <span class="cm">/* Get the value of the column named "column1" */</span>
 <span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">column1</span> <span class="o">=</span> <span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"column1"</span><span class="p">);</span>
 </code></pre>
-<p>Once the <a href="(http://datastax.github.io/cpp-driver/api/CassValue/)"><code>CassValue</code></a>
-has been obtained from the column, the actual value can be retrieved and
-assigned into the proper datatype.</p>
+<p>Once the <a href="(http://datastax.github.io/cpp-driver/api/CassValue/)"><code>CassValue</code></a> has been obtained from the column, the actual value can be retrieved and assigned into the proper datatype.</p>
 <pre class="highlight"><code><span class="nb">cass_int32_t</span> <span class="n">int_value</span><span class="p">;</span>
 <span class="nb">cass_value_get_int32</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">int_value</span><span class="p">);</span>
 
 <span class="nb">cass_int64_t</span> <span class="n">timestamp_value</span><span class="p">;</span>
 <span class="nb">cass_value_get_int32</span><span class="p">(</span><span class="n">column2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">timestamp_value</span><span class="p">);</span>
 
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">string_value</span><span class="p">;</span>
-<span class="kt">size_t</span> <span class="n">string_value_length</span><span class="p">;</span>
-<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">column3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">string_value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">string_value_length</span><span class="p">);</span>
+<span class="nc">CassString</span> <span class="n">string_value</span><span class="p">;</span>
+<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">column3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">string_value</span><span class="p">);</span>
 </code></pre>
 <h2 id="iterators" class="target">Iterators<a class="anchor" href="#iterators" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Iterators can be used to iterate over the rows in a result, the columns in a
-row, or the values in a collection.</p>
+<p>Iterators can be used to interate over the rows in a result, the columns in a row, or the values in a collection.</p>
 
-<p><strong>Important</strong>: <code>cass_iterator_next()</code> invalidates values retrieved by the
-previous iteration.</p>
+<p><strong>Important</strong>: <code>cass_iterator_next()</code> invalidates values retreived by the previous iteration.</p>
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
 
 <span class="nc">CassIterator</span><span class="o">*</span> <span class="n">iterator</span> <span class="o">=</span> <span class="nb">cass_iterator_from_result</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
@@ -395,9 +356,7 @@ previous iteration.</p>
 
 <span class="nb">cass_iterator_free</span><span class="p">(</span><span class="n">iterator</span><span class="p">);</span>
 </code></pre>
-<p>All iterators use the same pattern, but will have different iterator creation
-and retrieval functions. Iterating over a map collection is slightly different
-because it has two values per entry, but utilizes the same basic pattern.</p>
+<p>All iterators use the same pattern, but will have different iterator creation and retreival functions. Iterating over a map colleciton is slightly different because it has two values per entry, but utilizes the same basic pattern.</p>
 <pre class="highlight"><code><span class="cm">/* Execute SELECT query where a map colleciton is returned */</span>
 
 <span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
@@ -422,14 +381,9 @@ because it has two values per entry, but utilizes the same basic pattern.</p>
 <h2 id="paging" class="target">Paging<a class="anchor" href="#paging" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>When communicating with Cassandra 2.0 or later, large result sets can be divided
-into multiple pages automatically. The
-<a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a> object
-keeps track of the pagination state for the sequence of paging queries. When
-paging through the result set, the result object is checked to see if more pages
-exist where it is then attached to the statement before re-executing the query
-to get the next page.</p>
-<pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"SELECT * FROM table1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<p>When communicating with Cassandra 2.0 or later, large result sets can be divided into multiple pages automatically. The <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a> object keeps track of the pagination state for the sequence of paging queries. When paging through the result set, the result object is checked to see if more pages exist where it is then attached to the statement before re-executing the query to get the next page.</p>
+<pre class="highlight"><code><span class="nc">CassString</span> <span class="n">query</span> <span class="o">=</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"SELECT * FROM table1"</span><span class="p">);</span>
+<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="cm">/* Return a 100 rows every time this statement is executed */</span>
 <span class="nb">cass_statement_set_paging_size</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
@@ -460,14 +414,6 @@ to get the next page.</p>
   <span class="nb">cass_result_free</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p>The <a href="http://datastax.github.io/cpp-driver/api/CassStatement/#cass-statement-set-paging-state"><code>cass_statement_set_paging_state()</code></a> function abstracts the actual paging
-state token away from the application. The raw paging state token can be
-accessed using <a href="http://datastax.github.io/cpp-driver/api/CassResult/#cass-result-paging-state"><code>cass_result_paging_state()</code></a> and added to a statement using
-<a href="http://datastax.github.io/cpp-driver/api/CassStatement/#cass-statement-set-paging-state-token"><code>cass_statement_set_paging_state_token()</code></a>.</p>
-
-<p><strong>Warning</strong>: The paging state token should not be exposed to or come from
-untrusted environments. That paging state could be spoofed and potentially used
-to gain access to other data.</p>
 
 
         </div>

@@ -22,228 +22,220 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="docs" data-spy="scroll" data-target="#table-of-contents" data-offset="69">
-    <header class="container-fluid navbar">
-      <div class="row">
-        <div class="col-sm-4">
-          <a class="navbar-brand" href="../../../"><img alt="Brand" src="../../../img/logo.png">DataStax C/C++ Driver</a>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="list-inline" role="nav">
-                <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
-                <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
-                <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
-              </ul>
-            </div>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
           </div>
-          <div class="row">
-            <div class="col-md-8">
-              <form id="search" class="form-search dropdown visible-lg-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
-                <div class="form-group has-feedback">
-                  <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('v2.4')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
-                </div>
-                <ul class="dropdown-menu search-results" role="menu">
-                  <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  v2.4
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li class="disabled"><a href="./">v2.4</a></li>
+                
+                  <li><a href="../../../v2.3/topics/security/ssl/">v2.3</a></li>
+                
+                  <li><a href="../../../v2.2/topics/security/ssl/">v2.2</a></li>
+                
+                  <li><a href="../../../v2.1/topics/security/ssl/">v2.1</a></li>
+                
+                  <li><a href="../../../v2.0/topics/security/ssl/">v2.0</a></li>
+                
+                  <li><a href="../../../v1.0/topics/security/ssl/">v1.0</a></li>
+                
                 </ul>
-              </form>
+              </div>
             </div>
-            <div class="col-md-4">
-              <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
-            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('v2.4')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
           </div>
         </div>
       </div>
-      <div class="row crumbs-wrapper">
-        <div class="col-md-12">
-          <nav id="crumbs" data-spy="affix" data-offset-top="130">
-            <ol class="breadcrumb">
-              
-              <li>
-                <div class="btn-group">
-                  <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    v2.4
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
-                  
-                    <li class="disabled"><a href="./">v2.4</a></li>
-                  
-                    <li><a href="../../../v2.3/topics/security/ssl/">v2.3</a></li>
-                  
-                    <li><a href="../../../v2.2/topics/security/ssl/">v2.2</a></li>
-                  
-                    <li><a href="../../../v2.1/topics/security/ssl/">v2.1</a></li>
-                  
-                    <li><a href="../../../v2.0/topics/security/ssl/">v2.0</a></li>
-                  
-                    <li><a href="../../../v1.0/topics/security/ssl/">v1.0</a></li>
-                  
-                  </ul>
-                </div>
-              </li>
-              
-              
-              
-              
-              <li><a href="../../../">Home</a></li>
-              
-              
-              
-              
-              
-              <li><a href="../../">Getting Started</a></li>
-              
-              
-              
-              
-              
-              <li><a href="../">Security</a></li>
-              
-              
-              
-              
-              
-              <li class="active">SSL</li>
-              <li class="dropdown" id="table-of-contents">
-                <div class="btn-group">
-                  <button id="current-section" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                    Jump to&#8230; <span class="caret"></span><span class="sr-only">Table of Contents</span>
-                  </button>
-                  <ul class="dropdown-menu nav nav-pills nav-stacked">
-                    <li><a href="#ssl">Page Top <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a></li>
-<li>
-<a href="#setting-up-the-c-c-driver-to-use-ssl">Setting up the C/C++ Driver to Use SSL
-</a><ul class="nav nav-pills nav-stacked"><li>
-<a href="#using-cassandra-and-the-c-c-driver-with-client-side-certificates">Using Cassandra and the C/C++ driver with client-side certificates
-</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#generating-and-loading-the-client-side-certificate">Generating and loading the client-side certificate
-</a></li>
-<li><a href="#setting-up-client-authentication-with-cassandra">Setting up client authentication with Cassandra
-</a></li>
-</ul>
-</li></ul>
-</li>
-                  </ul>
-                </div>
-              </li>
-              
-              
-              
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </header>
+    </div>
 
     <div class="container-fluid" id="content">
       <div class="row">
         <div class="col-md-3">
           <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
-            <h3>Contents</h3>
+            <h3><a href="../../../">Contents</a></h3>
             <ul class="nav nav-pills nav-stacked">
   
   
-  
-  <li>
-    <a href="../../../api/">API docs <small>index</small></a>
-  </li>
-  
-  
-  
-  
   <li class="active">
-    <a href="../../">Getting Started <small>page</small></a>
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
     <ul class="nav nav-pills nav-stacked">
   
   
-  
   <li>
-    <a href="../../building/">Building <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../../basics/">Basics <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li class="active">
-    <a href="../">Security <small>page</small></a>
-    <ul class="nav nav-pills nav-stacked">
-  
-  
-  
-  <li class="active">
-    <a href="./" class="current">SSL <small>page</small></a>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
     
   </li>
   
   
-</ul>
-
-  </li>
-  
-  
-  
-  
   <li>
-    <a href="../../logging/">Logging <small>page</small></a>
+    <a href="../../basics/">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
   </li>
   
   
+  <li class="active">
+    <a href="../">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
   
   
-  <li>
-    <a href="../../faq/">FAQ <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../../metrics/">Metrics <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../../configuration/">Configuration <small>page</small></a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="../../testing/">Testing <small>page</small></a>
-  </li>
-  
+  <li class="active">
+    <a href="./" class="current">
+      SSL <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
   
 </ul>
 
   </li>
   
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
   
 </ul>
 
           </div>
         </div>
         <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Security</a></li>
+                
+                
+                
+                
+                
+                <li class="active">SSL</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
           
 
 <h1 id="ssl" class="target">SSL<a class="anchor" href="#ssl" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p>This is a guide to setting up SSL using the C/C++ driver. This guide will use self-signed certificates, but most steps will be similar for certificates generated by a certificate authority (CA). The first step is to generate a public and private key pair for all Cassandra nodes and configure them to use the generated certificate.</p>
+<p>This is a guide to setting up SSL using the C/C++ driver. This guide will use self-signed certificates, but most steps will be similar for certficates generated by a certificate authority (CA). The first step is to generate a public and private key pair for all Cassandra nodes and configure them to use the generated certificate.</p>
 
 <p>Some notes on this guide:
-- Keystore and truststore might be used interchangeably. These can and often times are the same file. This guide uses the same file for both (keystore.jks) The difference is keystores generally hold private keys and truststores hold public keys/certificate chains.
+- Keystore and truststore might be used interchangably. These can and often times are the same file. This guide uses the same file for both (keystore.jks) The difference is keystores generally hold private keys and truststores hold public keys/certificate chains.
 - Angle bracket fields (e.g. <code>&lt;field&gt;</code>) in examples need to be replaced with values specific to your environment.
 - <a href="https://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html">keytool</a> is an application included with Java 6+</p>
 
@@ -252,7 +244,7 @@
 <h3 id="generating-the-cassandra-public-and-private-keys" class="target">Generating the Cassandra Public and Private Keys<a class="anchor" href="#generating-the-cassandra-public-and-private-keys" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
 
-<p>The most secure method of setting up SSL is to verify that DNS or IP address used to connect to the server matches identity information found in the SSL certificate. This helps to prevent man-in-the-middle attacks. Cassandra uses IP addresses internally so those can be used directly for verification or a domain name can be used via reverse DNS (PTR record). That means that the IP address or domain name of the Cassandra server where the certficate is installed needs to be present in either the certficate’s common name (CN) or one of its subject alternative names (SANs). It’s possible to create the certficate without either, but then it will not be possible to verify the server’s identity. Although this is not as secure, it eases the deployment of SSL by allowing the same certficate to be deployed across the entire Cassandra cluster.</p>
+<p>The most secure method of setting up SSL is to verify that DNS or IP address used to connect to the server matches identity information found in the SSL certificate. This helps to prevent man-in-the-middle attacks. Cassandra uses IP addresses internally so that’s the only supported information for identity verification. That means that the IP address of the Cassandra server where the certficate is installed needs to be present in either the certficate’s common name (CN) or one of its subject alternative names (SANs). It’s possible to create the certficate without either, but then it will not be possible to verify the server’s identity. Although this is not as secure, it eases the deployment of SSL by allowing the same certficate to be deployed across the entire Cassandra cluster.</p>
 
 <p>To generate a public/private key pair with the IP address in the CN field use the following:</p>
 <pre class="highlight"><code>keytool -genkeypair -noprompt -keyalg RSA -validity 36500 <span class="se">\</span>
@@ -260,15 +252,15 @@
   -keystore keystore.jks <span class="se">\</span>
   -storepass &lt;keystore password&gt; <span class="se">\</span>
   -keypass &lt;key password&gt; <span class="se">\</span>
-  -dname <span class="s2">"CN=&lt;IP address or domain name goes here&gt;, OU=Drivers and Tools, O=DataStax Inc., L=Santa Clara, ST=California, C=US"</span>
+  -dname <span class="s2">"CN=&lt;IP address goes here&gt;, OU=Drivers and Tools, O=DataStax Inc., L=Santa Clara, ST=California, C=US"</span>
 </code></pre>
-<p>If SAN is preferred use this command:</p>
+<p>If SAN is prefered use this command:</p>
 <pre class="highlight"><code>keytool -genkeypair -noprompt -keyalg RSA -validity 36500 <span class="se">\</span>
   -alias node <span class="se">\</span>
   -keystore keystore.jks <span class="se">\</span>
   -storepass &lt;keystore password&gt; <span class="se">\</span>
   -keypass &lt;key password&gt; <span class="se">\</span>
-  -ext <span class="nv">SAN</span><span class="o">=</span><span class="s2">"&lt;IP address or domain name goes here&gt;"</span> <span class="se">\</span>
+  -ext <span class="nv">SAN</span><span class="o">=</span><span class="s2">"&lt;IP address goes here&gt;"</span> <span class="se">\</span>
   -dname <span class="s2">"CN=node1.datastax.com, OU=Drivers and Tools, O=DataStax Inc., L=Santa Clara, ST=California, C=US"</span>
 </code></pre>
 <p><strong>NOTE:</strong> If an IP address SAN is present then it overrides checking the CN.</p>
@@ -311,74 +303,66 @@
 <h4 id="exporting-and-loading-the-cassandra-public-key" class="target">Exporting and Loading the Cassandra Public Key<a class="anchor" href="#exporting-and-loading-the-cassandra-public-key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h4>
 
-<p>The default setting of the driver is to verify the certificate sent during the SSL handshake. For the driver to properly verify the Cassandra certificate the driver needs either the public key from the self-signed public key or the CA certificate chain used to sign the public key. To have this work, extract the public key from the Cassandra keystore generated in the previous steps. This exports a <a href="https://www.openssl.org/docs/crypto/pem.html#PEM_ENCRYPTION_FORMAT">PEM formatted</a> certificate which is required by the C/C++ driver.</p>
+<p>The default setting of the driver is to verify the certifcate sent during the SSL handshake. For the driver to properly verify the Cassandra certifcate the driver needs either the public key from the self-signed public key or the CA certificate chain used to sign the public key. To have this work, extract the public key from the Cassandra keystore generated in the previous steps. This exports a <a href="https://www.openssl.org/docs/crypto/pem.html#PEM_ENCRYPTION_FORMAT">PEM formatted</a> certficate which is required by the C/C++ driver.</p>
 <pre class="highlight"><code>keytool -exportcert -rfc -noprompt <span class="se">\</span>
   -alias node <span class="se">\</span>
   -keystore keystore.jks <span class="se">\</span>
   -storepass &lt;keystore password&gt; <span class="se">\</span>
   -file cassandra.pem
 </code></pre>
-<p>The trusted certificate can then be loaded using the following code:</p>
-<pre class="highlight"><code><span class="kt">int</span> <span class="nf">load_trusted_cert_file</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">file</span><span class="p">,</span> <span class="nc">CassSsl</span><span class="o">*</span> <span class="n">ssl</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nc">CassError</span> <span class="n">rc</span><span class="p">;</span>
-  <span class="kt">char</span><span class="o">*</span> <span class="n">cert</span><span class="p">;</span>
-  <span class="kt">long</span> <span class="n">cert_size</span><span class="p">;</span>
+<p>The trusted certficate can then be loaded using the following code:
+“`c
+int load_trusted_cert_file(const char* file, CassSsl* ssl) {
+  CassError rc;
+  char* cert;
+  long cert_size;</p>
 
-  <span class="kt">FILE</span> <span class="o">*</span><span class="n">in</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="nx">NULL</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error loading certificate file '%s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">file</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span>
+<p>FILE *in = fopen(file, &#8220;rb”);
+  if (in == NULL) {
+    fprintf(stderr, “Error loading certificate file ’%s’\n”, file);
+    return 0;
+  }</p>
 
-  <span class="n">fseek</span><span class="p">(</span><span class="n">in</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SEEK_END</span><span class="p">);</span>
-  <span class="n">cert_size</span> <span class="o">=</span> <span class="n">ftell</span><span class="p">(</span><span class="n">in</span><span class="p">);</span>
-  <span class="n">rewind</span><span class="p">(</span><span class="n">in</span><span class="p">);</span>
+<p>fseek(in, 0, SEEK_END);
+  cert_size = ftell(in);
+  rewind(in);</p>
 
-  <span class="n">cert</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">cert_size</span><span class="p">);</span>
-  <span class="n">fread</span><span class="p">(</span><span class="n">cert</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">cert_size</span><span class="p">,</span> <span class="n">in</span><span class="p">);</span>
-  <span class="n">fclose</span><span class="p">(</span><span class="n">in</span><span class="p">);</span>
+<p>cert = (char*)malloc(cert_size);
+  fread(cert, sizeof(char), cert_size, in);
+  fclose(in);</p>
 
-  <span class="c1">// Add the trusted certificate (or chain) to the driver
-</span>  <span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_ssl_add_trusted_cert_n</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="n">cert</span><span class="p">,</span> <span class="n">cert_size</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="n">CASS_OK</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error loading SSL certificate: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nb">cass_error_desc</span><span class="p">(</span><span class="n">rc</span><span class="p">));</span>
-    <span class="n">free</span><span class="p">(</span><span class="n">cert</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span>
+<p>// Add the trusted certificate (or chain) to the driver
+  rc = cass_ssl_add_trusted_cert(ssl, cass_string_init2(cert, cert_size));
+  if (rc != CASS_OK) {
+    fprintf(stderr, “Error loading SSL certificate: %s\n”, cass_error_desc(rc));
+    free(cert);
+    return 0;
+  }</p>
 
-  <span class="n">free</span><span class="p">(</span><span class="n">cert</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-<p>It is possible to load multiple self-signed certificates or CA certificate chains. In the event where self-signed certificates with unique IP addresses are being used this will be required. It is possible to disable the certificate verification process, but it is not recommended.</p>
+<p>free(cert);
+  return 1;
+}
+“`</p>
+
+<p>It is possible to load multiple self-signed certificates or CA certficate chains. In the event where self-signed certfiicates with unique IP addresses are being used this will be required. It is possible to disable the certificate verification process, but it is not recommended.</p>
 <pre class="highlight"><code><span class="c1">// Disable certifcate verifcation
 </span><span class="nb">cass_ssl_set_verify_flags</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="n">CASS_SSL_VERIFY_NONE</span><span class="p">);</span>
 </code></pre>
 <h4 id="enabling-cassandra-identity-verification" class="target">Enabling Cassandra identity verification<a class="anchor" href="#enabling-cassandra-identity-verification" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h4>
 
-<p>If a unique certificate has been generated for each Cassandra node with the IP address or domain name in the CN or SAN fields, identity verification will also need to be enabled.</p>
+<p>If a unique certifcate has been generated for each Cassandra node with the IP address in the CN or SAN fields, identity verification will also need to be enabled.</p>
 
 <p><strong>NOTE:</strong> This is disabled by default.</p>
-<pre class="highlight"><code><span class="c1">// Add identity verification flag: CASS_SSL_VERIFY_PEER_IDENTITY (IP address)
+<pre class="highlight"><code><span class="c1">// Add identity verification flag: CASS_SSL_VERIFY_PEER_IDENTITY
 </span><span class="nb">cass_ssl_set_verify_flags</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="n">CASS_SSL_VERIFY_PEER_CERT</span> <span class="o">|</span> <span class="n">CASS_SSL_VERIFY_PEER_IDENTITY</span><span class="p">);</span>
-
-<span class="c1">// Or use: CASS_SSL_VERIFY_PEER_IDENTITY_DNS (domain name)
-</span><span class="nb">cass_ssl_set_verify_flags</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="n">CASS_SSL_VERIFY_PEER_CERT</span> <span class="o">|</span> <span class="n">CASS_SSL_VERIFY_PEER_IDENTITY_DNS</span><span class="p">);</span>
 </code></pre>
-<p>If using a domain name to verify the peer’s identity then hostname resolution
-(reverse DNS) needs to be enabled:</p>
-
-<p><strong>NOTE:</strong> This is also disabled by default.</p>
-<pre class="highlight"><code><span class="c1">// Enable reverse DNS
-</span><span class="nb">cass_cluster_set_use_hostname_resolution</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="nb">cass_true</span><span class="p">);</span>
-</code></pre>
-<h3 id="using-cassandra-and-the-c-c-driver-with-client-side-certificates" class="target">Using Cassandra and the C/C++ driver with client-side certificates<a class="anchor" href="#using-cassandra-and-the-c-c-driver-with-client-side-certificates" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<h3 id="using-cassandra-and-the-c-c-driver-with-client-side-certifcates" class="target">Using Cassandra and the C/C++ driver with client-side certifcates<a class="anchor" href="#using-cassandra-and-the-c-c-driver-with-client-side-certifcates" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
 
 <p>Client-side certificates allow Cassandra to authenticate the client using public key cryptography and chains of trust. This is same process as above but in reverse. The client has a public and private key and the Cassandra node has a copy of the private key or the CA chain used to generate the pair.</p>
 
-<h4 id="generating-and-loading-the-client-side-certificate" class="target">Generating and loading the client-side certificate<a class="anchor" href="#generating-and-loading-the-client-side-certificate" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<h4 id="genterating-and-loading-the-client-side-certficate" class="target">Genterating and loading the client-side certficate<a class="anchor" href="#genterating-and-loading-the-client-side-certficate" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h4>
 
 <p>A new public/private key pair needs to be generated for client authentication.</p>
@@ -419,7 +403,7 @@ openssl pkcs12 -nomacver -nocerts <span class="se">\</span>
 
 <span class="c1">// Load PEM-formatted certificate data and size into cert and cert_size...
 </span>
-<span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_ssl_set_cert_n</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="n">cert</span><span class="p">,</span> <span class="n">cert_size</span><span class="p">);</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_ssl_set_cert</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="nb">cass_string_init2</span><span class="p">(</span><span class="n">cert</span><span class="p">,</span> <span class="n">cert_size</span><span class="p">));</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="n">CASS_OK</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Handle error
 </span><span class="p">}</span>
@@ -433,7 +417,7 @@ openssl pkcs12 -nomacver -nocerts <span class="se">\</span>
 
 <span class="c1">// Load PEM-formatted private key data and size into key and key_size...
 </span>
-<span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_ssl_set_private_key_n</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">key_size</span><span class="p">,</span> <span class="n">key_password</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">key_password</span><span class="p">));</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_ssl_set_private_key</span><span class="p">(</span><span class="n">ssl</span><span class="p">,</span> <span class="nb">cass_string_init2</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">key_size</span><span class="p">),</span> <span class="n">key_password</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="n">CASS_OK</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Handle error
 </span><span class="p">}</span>
@@ -441,7 +425,7 @@ openssl pkcs12 -nomacver -nocerts <span class="se">\</span>
 <h4 id="setting-up-client-authentication-with-cassandra" class="target">Setting up client authentication with Cassandra<a class="anchor" href="#setting-up-client-authentication-with-cassandra" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h4>
 
-<p>The driver’s public key or the CA chain used to sign the driver’s certificate will need to be added to Cassandra’s truststore. If using self-signed certificate then the public key will need to be extracted from the driver’s keystore generated in the previous steps.</p>
+<p>The driver’s public key or the CA chain used to sign the driver’s certificate will need to be added to Cassandra’s truststore. If using self-signed certificate then the public key will need to be extrated from the driver’s keystore generated in the previous steps.</p>
 
 <p>Extract the public key from the driver’s keystore and add it to Cassandra’s truststore.</p>
 <pre class="highlight"><code>keytool -exportcert -noprompt <span class="se">\</span>
