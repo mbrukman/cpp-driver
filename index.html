@@ -134,13 +134,17 @@
 <h1 id="data-stax-c-c-driver-for-apache-cassandra" class="target">DataStax C/C++ Driver for Apache Cassandra<a class="anchor" href="#data-stax-c-c-driver-for-apache-cassandra" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p><a href="https://travis-ci.org/datastax/cpp-driver"><img src="https://travis-ci.org/datastax/cpp-driver.svg?branch=1.0" alt="Build Status"></a></p>
+<p><a href="https://travis-ci.org/datastax/cpp-driver"><img src="https://travis-ci.org/datastax/cpp-driver.svg?branch=master" alt="Build Status: Linux"></a>
+<a href="https://ci.appveyor.com/project/DataStax/cpp-driver"><img src="https://ci.appveyor.com/api/projects/status/ec0x0vuk59as28r6/branch/master?svg=true" alt="Build Status: Windows"></a></p>
 
-<p>A C/C++ client driver for Apache Cassandra. This driver works exclusively with
-the Cassandra Query Language version 3 (CQL3) and Cassandra’s Native Protocol (version 1 and 2).</p>
+<p>A modern, <a href="#features">feature-rich</a>, and highly tunable C/C++ client library for
+Apache Cassandra (1.2+) and DataStax Enterprise (3.1+) using exclusively
+Cassandra’s native protocol and Cassandra Query Language v3.</p>
 
 <ul>
 <li>Code: <a href="https://github.com/datastax/cpp-driver">https://github.com/datastax/cpp-driver</a>
+</li>
+<li>Binaries: <a href="http://downloads.datastax.com/cpp-driver/">http://downloads.datastax.com/cpp-driver/</a>
 </li>
 <li>Docs: <a href="http://datastax.github.io/cpp-driver">http://datastax.github.io/cpp-driver</a>
 </li>
@@ -152,26 +156,97 @@ the Cassandra Query Language version 3 (CQL3) and Cassandra’s Native Protocol 
 </li>
 </ul>
 
-<h2 id="functionality" class="target">Functionality<a class="anchor" href="#functionality" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<h2 id="what-s-new-in-2-3-and-2-4" class="target">What’s New in 2.3 and 2.4<a class="anchor" href="#what-s-new-in-2-3-and-2-4" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
 <ul>
-<li>Completely asynchronous</li>
-<li>Exception safe</li>
-<li>Ad-hoc queries</li>
-<li>Prepared statements</li>
-<li>Batch statements</li>
-<li>Connection pool with auto-reconnect</li>
-<li>Cassandra collections</li>
-<li>Compatibility with binary protcol version 1 and 2</li>
-<li>Authentication (via credentials using SASL PLAIN)</li>
-<li>SSL</li>
+<li>Support for materialized view and secondary index metadata</li>
+<li>Support for clustering key order, <code>frozen&lt;&gt;</code> and Cassandra version metadata</li>
+<li>
+<a href="topics/configuration/#blacklist">Blacklist</a>, <a href="topics/configuration/#datacenter">whitelist DC</a>, and <a href="topics/configuration/#datacenter">blacklist DC</a> load balancing policies</li>
+<li>
+<a href="topics/security/#custom">Custom</a> authenticators</li>
+<li>
+<a href="topics/security/ssl/#enabling-cassandra-identity-verification">Reverse DNS</a> with SSL peer identity verification support</li>
+<li>Randomized contact points</li>
 </ul>
 
-<h2 id="upgrading-from-a-beta-to-a-rc-release" class="target">Upgrading from a Beta to a RC Release<a class="anchor" href="#upgrading-from-a-beta-to-a-rc-release" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<p>More information about features included in 2.3 can be found in this <a href="http://www.datastax.com/dev/blog/datastax-c-driver-2-3-ga-released">blog
+post</a>.</p>
+
+<h2 id="upgrading-from-2-0-or-2-1-to-2-2" class="target">Upgrading from 2.0 or 2.1 to 2.2+<a class="anchor" href="#upgrading-from-2-0-or-2-1-to-2-2" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>There were a couple breaking API changes between beta5 and rc1 that are documented in detail <a href="http://www.datastax.com/dev/blog/datastax-c-driver-rc1-released">here</a>.</p>
+<p>The new schema metadata API in 2.2 required some breaking API changes.
+Applications that used the previous schema metadata API from 2.0 and 2.1 will
+require some small modifications to use the new API. More information about the
+new schema metadata API can be found in this
+<a href="http://www.datastax.com/dev/blog/datastax-c-driver-2-2-ga-released">blog post</a>.</p>
+
+<h2 id="upgrading-from-1-0-to-2-0" class="target">Upgrading from 1.0 to 2.0+<a class="anchor" href="#upgrading-from-1-0-to-2-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>There were a couple breaking API changes between 1.0 and 2.0 that are documented
+<a href="http://www.datastax.com/dev/blog/datastax-c-driver-2-0-released">here</a>.</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li><a href="topics/#futures">Asynchronous API</a></li>
+<li>
+<a href="topics/#executing-queries">Simple</a>, <a href="topics/basics/prepared_statements/">Prepared</a>, and <a href="topics/basics/batches/">Batch</a> statements</li>
+<li>
+<a href="topics/#asynchronous-i-o">Asynchronous I/O</a>, <a href="topics/#thread-safety">parallel execution</a>, and request pipelining</li>
+<li>Connection pooling</li>
+<li>Automatic node discovery</li>
+<li>Automatic reconnection</li>
+<li>Configurable <a href="topics/configuration/#load-balancing">load balancing</a>
+</li>
+<li>Works with any cluster size</li>
+<li><a href="topics/security/#authentication">Authentication</a></li>
+<li><a href="topics/security/ssl/">SSL</a></li>
+<li><a href="topics/configuration/#latency-aware-routing">Latency-aware routing</a></li>
+<li><a href="topics/metrics/">Performance metrics</a></li>
+<li>
+<a href="topics/basics/tuples/">Tuples</a> and <a href="topics/basics/user_defined_types/">UDTs</a>
+</li>
+<li><a href="topics/basics/binding_parameters/#nested-collections">Nested collections</a></li>
+<li><a href="topics/configuration/retry_policies/">Retry policies</a></li>
+<li><a href="topics/basics/client_side_timestamps/">Client-side timestamps</a></li>
+<li><a href="topics/basics/data_types/">Data types</a></li>
+<li><a href="topics/configuration/#connection-heartbeats">Idle connection heartbeats</a></li>
+</ul>
+
+<h2 id="compatibility" class="target">Compatibility<a class="anchor" href="#compatibility" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>This release is compatible with Apache Cassandra 1.2, 2.0, 2.1, 2.2 and 3.0.</p>
+
+<p>A complete compatibility matrix for both Apache Cassandra and DataStax
+Enterprise can be found
+<a href="https://docs.datastax.com/en/developer/driver-matrix/doc/common/driverMatrix.html?scroll=driverMatrix__cpp-driver-matrix">here</a>.</p>
+
+<h2 id="installation" class="target">Installation<a class="anchor" href="#installation" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Binary packages are <a href="http://downloads.datastax.com/cpp-driver/">available</a> for
+CentOS, Ubuntu and Windows. Packages for the driver’s dependencies, libuv (1.x)
+and OpenSSL, are also provided under the <code>dependencies</code> directory for each
+platform e.g. <a href="http://downloads.datastax.com/cpp-driver/centos/7/dependencies/">CentOS 7</a>,
+<a href="http://downloads.datastax.com/cpp-driver/ubuntu/14.04/dependencies/">Ubuntu 14.04</a>,
+<a href="http://downloads.datastax.com/cpp-driver/windows/dependencies/">Windows</a>.</p>
+
+<p><em>Note</em>: CentOS and Ubuntu use the version of OpenSSL provided with the
+distribution.</p>
+
+<p>The driver can also be <a href="topics/building/">built from
+source</a>.</p>
+
+<h2 id="feedback-requested" class="target">Feedback Requested<a class="anchor" href="#feedback-requested" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p><strong>Help us focus our efforts!</strong> <a href="http://goo.gl/forms/ihKC5uEQr6">Provide your input</a> on the C/C++ Driver Platform and Runtime Survey (we kept it short).</p>
 
 <h2 id="examples" class="target">Examples<a class="anchor" href="#examples" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
@@ -180,17 +255,21 @@ the Cassandra Query Language version 3 (CQL3) and Cassandra’s Native Protocol 
 
 <h2 id="a-simple-example" class="target">A Simple Example<a class="anchor" href="#a-simple-example" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
-<pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;cassandra.h&gt;
+<pre class="highlight"><code><span class="cp">#include &lt;cassandra.h&gt;
+#include &lt;stdio.h&gt;
 </span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
   <span class="cm">/* Setup and connect to cluster */</span>
   <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">connect_future</span> <span class="o">=</span> <span class="nx">NULL</span><span class="p">;</span>
   <span class="nc">CassCluster</span><span class="o">*</span> <span class="n">cluster</span> <span class="o">=</span> <span class="nb">cass_cluster_new</span><span class="p">();</span>
   <span class="nc">CassSession</span><span class="o">*</span> <span class="n">session</span> <span class="o">=</span> <span class="nb">cass_session_new</span><span class="p">();</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">hosts</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">hosts</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
 
   <span class="cm">/* Add contact points */</span>
-  <span class="nb">cass_cluster_set_contact_points</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">"127.0.0.1,127.0.0.2,127.0.0.3"</span><span class="p">);</span>
+  <span class="nb">cass_cluster_set_contact_points</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">hosts</span><span class="p">);</span>
 
   <span class="cm">/* Provide the cluster object as configuration to connect the session */</span>
   <span class="n">connect_future</span> <span class="o">=</span> <span class="nb">cass_session_connect</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">cluster</span><span class="p">);</span>
@@ -199,34 +278,32 @@ the Cassandra Query Language version 3 (CQL3) and Cassandra’s Native Protocol 
     <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">close_future</span> <span class="o">=</span> <span class="nx">NULL</span><span class="p">;</span>
 
     <span class="cm">/* Build statement and execute query */</span>
-    <span class="nc">CassString</span> <span class="n">query</span> <span class="o">=</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"SELECT keyspace_name "</span>
-                                        <span class="s">"FROM system.schema_keyspaces;"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">query</span> <span class="o">=</span> <span class="s">"SELECT release_version FROM system.local"</span><span class="p">;</span>
     <span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
     <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">result_future</span> <span class="o">=</span> <span class="nb">cass_session_execute</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
 
-    <span class="k">if</span><span class="p">(</span><span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">result_future</span><span class="p">)</span> <span class="o">==</span> <span class="n">CASS_OK</span><span class="p">)</span> <span class="p">{</span>
-      <span class="cm">/* Retrieve result set and iterate over the rows */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">result_future</span><span class="p">)</span> <span class="o">==</span> <span class="n">CASS_OK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="cm">/* Retrieve result set and get the first row */</span>
       <span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">result_future</span><span class="p">);</span>
-      <span class="nc">CassIterator</span><span class="o">*</span> <span class="n">rows</span> <span class="o">=</span> <span class="nb">cass_iterator_from_result</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+      <span class="k">const</span> <span class="nc">CassRow</span><span class="o">*</span> <span class="n">row</span> <span class="o">=</span> <span class="nb">cass_result_first_row</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 
-      <span class="k">while</span><span class="p">(</span><span class="nb">cass_iterator_next</span><span class="p">(</span><span class="n">rows</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">const</span> <span class="nc">CassRow</span><span class="o">*</span> <span class="n">row</span> <span class="o">=</span> <span class="nb">cass_iterator_get_row</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span>
-        <span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"keyspace_name"</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"release_version"</span><span class="p">);</span>
 
-        <span class="nc">CassString</span> <span class="n">keyspace_name</span><span class="p">;</span>
-        <span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">keyspace_name</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"keyspace_name: '%.*s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">keyspace_name</span><span class="p">.</span><span class="n">length</span><span class="p">,</span>
-                                               <span class="n">keyspace_name</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">release_version</span><span class="p">;</span>
+        <span class="kt">size_t</span> <span class="n">release_version_length</span><span class="p">;</span>
+        <span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">release_version</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">release_version_length</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"release_version: '%.*s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">release_version_length</span><span class="p">,</span> <span class="n">release_version</span><span class="p">);</span>
       <span class="p">}</span>
 
       <span class="nb">cass_result_free</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-      <span class="nb">cass_iterator_free</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="cm">/* Handle error */</span>
-      <span class="nc">CassString</span> <span class="n">message</span> <span class="o">=</span> <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">result_future</span><span class="p">);</span>
-      <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Unable to run query: '%.*s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">message</span><span class="p">.</span><span class="n">length</span><span class="p">,</span>
-                                                            <span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+      <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">message</span><span class="p">;</span>
+      <span class="kt">size_t</span> <span class="n">message_length</span><span class="p">;</span>
+      <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">result_future</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">message_length</span><span class="p">);</span>
+      <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Unable to run query: '%.*s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">message_length</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="nb">cass_statement_free</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
@@ -238,9 +315,10 @@ the Cassandra Query Language version 3 (CQL3) and Cassandra’s Native Protocol 
     <span class="nb">cass_future_free</span><span class="p">(</span><span class="n">close_future</span><span class="p">);</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="cm">/* Handle error */</span>
-    <span class="nc">CassString</span> <span class="n">message</span> <span class="o">=</span> <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">connect_future</span><span class="p">);</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Unable to connect: '%.*s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">message</span><span class="p">.</span><span class="n">length</span><span class="p">,</span>
-                                                        <span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">message</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">message_length</span><span class="p">;</span>
+    <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">connect_future</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">message_length</span><span class="p">);</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Unable to connect: '%.*s'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">message_length</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="nb">cass_future_free</span><span class="p">(</span><span class="n">connect_future</span><span class="p">);</span>
@@ -253,7 +331,7 @@ the Cassandra Query Language version 3 (CQL3) and Cassandra’s Native Protocol 
 <h2 id="license" class="target">License<a class="anchor" href="#license" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Copyright © 2014-2015 DataStax</p>
+<p>Copyright © 2014-2016 DataStax</p>
 
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.

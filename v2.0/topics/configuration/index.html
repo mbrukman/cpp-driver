@@ -262,7 +262,7 @@ Cassandra clusters where all nodes are located in the same datacenter.</p>
 datacenter. Nodes in remote datacenters are only used when all local nodes are
 unavailable. Additionally, remote nodes are only considered when non-local
 consistency levels are used or if the driver is configured to use remote nodes
-with the <a href="http://datastax.github.io/cpp-driver/api/CassCluster/#1a46b9816129aaa5ab61a1363489dccfd0"><code>allow_remote_dcs_for_local_cl</code></a> setting.</p>
+with the <a href="../../api/struct.CassCluster/#1a46b9816129aaa5ab61a1363489dccfd0"><code>allow_remote_dcs_for_local_cl</code></a> setting.</p>
 <pre class="highlight"><code><span class="cm">/*
  * Use up to 2 remote datacenter nodes for remote consistency levels
  * or when `allow_remote_dcs_for_local_cl` is enabled.

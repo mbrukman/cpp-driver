@@ -112,8 +112,26 @@
   
   
   <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticator/">
+      CassAuthenticator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticatorCallbacks/">
+      CassAuthenticatorCallbacks <small>struct</small>
       
     </a>
     
@@ -123,15 +141,6 @@
   <li>
     <a href="../struct.CassBatch/">
       CassBatch <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassBytes/">
-      CassBytes <small>struct</small>
       
     </a>
     
@@ -157,8 +166,44 @@
   
   
   <li>
-    <a href="../struct.CassDecimal/">
-      CassDecimal <small>struct</small>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
       
     </a>
     
@@ -168,6 +213,15 @@
   <li>
     <a href="../struct.CassFuture/">
       CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
       
     </a>
     
@@ -193,8 +247,35 @@
   
   
   <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassLogMessage/">
       CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
       
     </a>
     
@@ -220,8 +301,8 @@
   
   
   <li>
-    <a href="../struct.CassRow/">
-      CassRow <small>struct</small>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
       
     </a>
     
@@ -229,8 +310,8 @@
   
   
   <li>
-    <a href="../struct.CassSchema/">
-      CassSchema <small>struct</small>
+    <a href="../struct.CassRow/">
+      CassRow <small>struct</small>
       
     </a>
     
@@ -246,15 +327,6 @@
   
 </ul>
 
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassSchemaMetaField/">
-      CassSchemaMetaField <small>struct</small>
-      
-    </a>
-    
   </li>
   
   
@@ -286,8 +358,35 @@
   
   
   <li>
-    <a href="../struct.CassString/">
-      CassString <small>struct</small>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
       
     </a>
     
@@ -315,6 +414,24 @@
   <li>
     <a href="../struct.CassValue/">
       CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
       
     </a>
     
@@ -364,7 +481,7 @@
 </h1>
 </div>
 
-<p>Table/Column schema metdata.</p>
+<p>A snapshot of the schema’s metadata.</p>
 
 
 <h2 id="functions" class="target">Functions<a class="anchor" href="#functions" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
@@ -373,11 +490,118 @@
 <div class="attributes-content">
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
-      <code>const <a href="./">CassSchemaMeta</a> *</code> <h3 id="function-cass_schema_meta_get_entry" class="target">cass_schema_meta_get_entry<a class="anchor" href="#function-cass_schema_meta_get_entry" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta, <code>const char *</code> name <big>)</big>
+      <code>void</code> <h3 id="function-cass_schema_meta_free" class="target">cass_schema_meta_free<a class="anchor" href="#function-cass_schema_meta_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Gets a metadata entry for the provided table/column name.</p>
+      <p>Frees a schema metadata instance.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>schema_meta</var>
+</td>
+<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code> <h3 id="function-cass_schema_meta_snapshot_version" class="target">cass_schema_meta_snapshot_version<a class="anchor" href="#function-cass_schema_meta_snapshot_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the version of the schema metadata snapshot.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>schema_meta</var>
+</td>
+<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code></td>
+<td>
+<p>The snapshot version.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../struct.CassVersion/">CassVersion</a></code> <h3 id="function-cass_schema_meta_version" class="target">cass_schema_meta_version<a class="anchor" href="#function-cass_schema_meta_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the version of the connected Cassandra cluster.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>schema_meta</var>
+</td>
+<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../struct.CassVersion/">CassVersion</a></code></td>
+<td>
+<p>Cassandra’s version</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code> <h3 id="function-cass_schema_meta_keyspace_by_name" class="target">cass_schema_meta_keyspace_by_name<a class="anchor" href="#function-cass_schema_meta_keyspace_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta, <code>const char *</code> keyspace <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the keyspace metadata for the provided keyspace name.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -390,19 +614,17 @@
 <tbody>
 <tr>
 <td>
-<small>in</small> <var>meta</var>
+<small>in</small> <var>schema_meta</var>
 </td>
 <td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
 <td></td>
 </tr>
 <tr>
 <td>
-<small>in</small> <var>name</var>
+<small>in</small> <var>keyspace</var>
 </td>
 <td><code>const char *</code></td>
-<td>
-<p>The name of a table or column</p>
-</td>
+<td></td>
 </tr>
 </tbody>
 </table></dd>
@@ -413,30 +635,22 @@
 <th class="details">Details</th>
 </tr></thead>
 <tbody><tr>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td><code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code></td>
 <td>
-<p>The schema metadata for a table/column. NULL if table/column does not exist.</p>
+<p>The metadata for a keyspace. NULL if keyspace does not exist.</p>
 </td>
 </tr></tbody>
 </table></dd>
-<dt class="tag-title">See Also:</dt>
-<dd class="tag-content"><ul class="see">
-<li><code><a href="#function-cass_schema_meta_get_entry">CassSchemaMeta::cass_schema_meta_get_entry</a></code></li>
-<li><code><a href="#function-cass_schema_meta_get_field">CassSchemaMeta::cass_schema_meta_get_field</a></code></li>
-<li><code><a href="../struct.CassSchema/#function-cass_schema_meta_type">CassSchema::cass_schema_meta_type</a></code></li>
-<li><code><a href="#function-cass_iterator_from_schema_meta">CassSchemaMeta::cass_iterator_from_schema_meta</a></code></li>
-<li><code><a href="#function-cass_iterator_fields_from_schema_meta">CassSchemaMeta::cass_iterator_fields_from_schema_meta</a></code></li>
-</ul></dd>
 </dl>
     </div>
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
-      <code>const <a href="../struct.CassSchemaMetaField/">CassSchemaMetaField</a> *</code> <h3 id="function-cass_schema_meta_get_field" class="target">cass_schema_meta_get_field<a class="anchor" href="#function-cass_schema_meta_get_field" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta, <code>const char *</code> name <big>)</big>
+      <code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code> <h3 id="function-cass_schema_meta_keyspace_by_name_n" class="target">cass_schema_meta_keyspace_by_name_n<a class="anchor" href="#function-cass_schema_meta_keyspace_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta, <code>const char *</code> keyspace, <code>size_t</code> keyspace_length <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Gets a metadata field for the provided name.</p>
+      <p>Same as <code><a href="#function-cass_schema_meta_keyspace_by_name">CassSchemaMeta::cass_schema_meta_keyspace_by_name</a></code>, but with lengths for string parameters.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -449,19 +663,24 @@
 <tbody>
 <tr>
 <td>
-<small>in</small> <var>meta</var>
+<small>in</small> <var>schema_meta</var>
 </td>
 <td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
 <td></td>
 </tr>
 <tr>
 <td>
-<small>in</small> <var>name</var>
+<small>in</small> <var>keyspace</var>
 </td>
 <td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
 <td>
-<p>The name of a field</p>
+<small>in</small> <var>keyspace_length</var>
 </td>
+<td><code>size_t</code></td>
+<td></td>
 </tr>
 </tbody>
 </table></dd>
@@ -472,27 +691,24 @@
 <th class="details">Details</th>
 </tr></thead>
 <tbody><tr>
-<td><code>const <a href="../struct.CassSchemaMetaField/">CassSchemaMetaField</a> *</code></td>
+<td><code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code></td>
 <td>
-<p>A schema metadata field. NULL if the field does not exist.</p>
+<p>same as <code><a href="#function-cass_schema_meta_keyspace_by_name">CassSchemaMeta::cass_schema_meta_keyspace_by_name</a></code></p>
 </td>
 </tr></tbody>
 </table></dd>
 <dt class="tag-title">See Also:</dt>
-<dd class="tag-content"><ul class="see">
-<li><code><a href="../struct.CassSchemaMetaField/#function-cass_schema_meta_field_name">CassSchemaMetaField::cass_schema_meta_field_name</a></code></li>
-<li><code><a href="../struct.CassSchemaMetaField/#function-cass_schema_meta_field_value">CassSchemaMetaField::cass_schema_meta_field_value</a></code></li>
-</ul></dd>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_schema_meta_keyspace_by_name">CassSchemaMeta::cass_schema_meta_keyspace_by_name</a></code></li></ul></dd>
 </dl>
     </div>
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
-      <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_schema_meta" class="target">cass_iterator_from_schema_meta<a class="anchor" href="#function-cass_iterator_from_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta <big>)</big>
+      <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_keyspaces_from_schema_meta" class="target">cass_iterator_keyspaces_from_schema_meta<a class="anchor" href="#function-cass_iterator_keyspaces_from_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Creates a new iterator for the specified schema metadata. This can be used to iterate over table/column entries.</p>
+      <p>Creates a new iterator for the specified schema metadata. This can be used to iterate over keyspace.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -504,7 +720,7 @@
 </tr></thead>
 <tbody><tr>
 <td>
-<small>in</small> <var>meta</var>
+<small>in</small> <var>schema_meta</var>
 </td>
 <td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
 <td></td>
@@ -525,52 +741,7 @@
 </table></dd>
 <dt class="tag-title">See Also:</dt>
 <dd class="tag-content"><ul class="see">
-<li><code><a href="../struct.CassIterator/#function-cass_iterator_get_schema_meta">CassIterator::cass_iterator_get_schema_meta</a></code></li>
-<li><code><a href="../struct.CassIterator/#function-cass_iterator_free">CassIterator::cass_iterator_free</a></code></li>
-</ul></dd>
-</dl>
-    </div>
-  </div>
-  <div class="panel panel-default member-definition">
-    <div class="panel-heading function-heading">
-      <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_schema_meta" class="target">cass_iterator_fields_from_schema_meta<a class="anchor" href="#function-cass_iterator_fields_from_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta <big>)</big>
-    </div>
-    <div class="panel-body function-body">
-      <p>Creates a new iterator for the specified schema metadata. This can be used to iterate over schema metadata fields.</p>
-
-      <dl class="tags">
-<dt class="tag-title">Parameters:</dt>
-<dd class="tag-content"><table class="table table-striped param">
-<thead><tr>
-<th class="name">Name</th>
-<th class="type">Type</th>
-<th class="details">Details</th>
-</tr></thead>
-<tbody><tr>
-<td>
-<small>in</small> <var>meta</var>
-</td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
-<td></td>
-</tr></tbody>
-</table></dd>
-<dt class="tag-title">Returns:</dt>
-<dd class="tag-content"><table class="table table-striped return">
-<thead><tr>
-<th class="type">Type</th>
-<th class="details">Details</th>
-</tr></thead>
-<tbody><tr>
-<td><code><a href="../struct.CassIterator/">CassIterator</a> *</code></td>
-<td>
-<p>A new iterator that must be freed.</p>
-</td>
-</tr></tbody>
-</table></dd>
-<dt class="tag-title">See Also:</dt>
-<dd class="tag-content"><ul class="see">
-<li><code><a href="../struct.CassIterator/#function-cass_iterator_get_schema_meta_field">CassIterator::cass_iterator_get_schema_meta_field</a></code></li>
+<li><code><a href="../struct.CassIterator/#function-cass_iterator_get_keyspace_meta">CassIterator::cass_iterator_get_keyspace_meta</a></code></li>
 <li><code><a href="../struct.CassIterator/#function-cass_iterator_free">CassIterator::cass_iterator_free</a></code></li>
 </ul></dd>
 </dl>

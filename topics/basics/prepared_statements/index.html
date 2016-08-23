@@ -183,8 +183,26 @@
   
   
   <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../consistency/">
       Consistency <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
       
     </a>
     
@@ -200,6 +218,33 @@
   
 </ul>
 
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
+      
+    </a>
+    
   </li>
   
 </ul>
@@ -233,6 +278,10 @@
     <a href="../../configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -241,6 +290,28 @@
   <li>
     <a href="../../faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -305,11 +376,9 @@
 </h1>
 
 <p>Prepared statements can be used to improve the performance of frequently executed queries. Preparing the query caches it on the Cassandra cluster and only needs to be performed once. Once created, prepared statements should be reused with different bind variables. Prepared queries use the <code>?</code> marked to denote bind variables in the query string.</p>
-<pre class="highlight"><code><span class="nc">CassString</span> <span class="n">insert_query</span>
-  <span class="o">=</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"INSERT INTO example (key, value) VALUES (?, ?);"</span><span class="p">);</span>
-
-<span class="cm">/* Prepare the statement on the Cassandra cluster */</span>
-<span class="nc">CassFuture</span><span class="o">*</span> <span class="n">prepare_future</span> <span class="o">=</span> <span class="nb">cass_session_prepare</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">insert_query</span><span class="p">);</span>
+<pre class="highlight"><code><span class="cm">/* Prepare the statement on the Cassandra cluster */</span>
+<span class="nc">CassFuture</span><span class="o">*</span> <span class="n">prepare_future</span>
+  <span class="o">=</span> <span class="nb">cass_session_prepare</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s">"INSERT INTO example (key, value) VALUES (?, ?)"</span><span class="p">);</span>
 
 <span class="cm">/* Wait for the statement to prepare and get the result */</span>
 <span class="nc">CassError</span> <span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">prepare_future</span><span class="p">);</span>
@@ -323,7 +392,7 @@
 <span class="p">}</span>
 
 <span class="cm">/* Get the prepared object from the future */</span>
-<span class="k">const</span> <span class="nc">CassPrepared</span><span class="o">*</span> <span class="n">prepared</span> <span class="o">=</span> <span class="nb">cass_future_get_prepared</span><span class="p">(</span><span class="n">prepared_future</span><span class="p">);</span>
+<span class="k">const</span> <span class="nc">CassPrepared</span><span class="o">*</span> <span class="n">prepared</span> <span class="o">=</span> <span class="nb">cass_future_get_prepared</span><span class="p">(</span><span class="n">prepare_future</span><span class="p">);</span>
 
 <span class="cm">/* The future can be freed immediately after getting the prepared object */</span>
 <span class="nb">cass_future_free</span><span class="p">(</span><span class="n">prepare_future</span><span class="p">);</span>
@@ -332,7 +401,7 @@
 <span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_prepared_bind</span><span class="p">(</span><span class="n">prepared</span><span class="p">);</span>
 
 <span class="cm">/* Bind variables by name this time (this can only be done with prepared statements)*/</span>
-<span class="nb">cass_statement_bind_string_by_name</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="s">"key"</span><span class="p">,</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"abc"</span><span class="p">));</span>
+<span class="nb">cass_statement_bind_string_by_name</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="s">"key"</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
 <span class="nb">cass_statement_bind_int32_by_name</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="s">"value"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
 
 <span class="cm">/* Execute statement (same a the non-prepared code) */</span>

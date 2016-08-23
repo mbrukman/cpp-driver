@@ -182,6 +182,15 @@
   </li>
   
   
+  <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
   <li class="active">
     <a href="./" class="current">
       Consistency <small>page</small>
@@ -195,8 +204,44 @@
   
   
   <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../prepared_statements/">
       Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
       
     </a>
     
@@ -233,6 +278,10 @@
     <a href="../../configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -241,6 +290,28 @@
   <li>
     <a href="../../faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -304,7 +375,16 @@
 <h1 id="consistency" class="target">Consistency<a class="anchor" href="#consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p>A setting that defines a successful write or read by the number of cluster replicas that acknowledge the write or respond to the read request, respectively.</p>
+<p>A setting that defines a successful write or read by the number of cluster
+replicas that acknowledge the write or respond to the read request,
+respectively.</p>
+
+<h2 id="default-consistency" class="target">Default consistency<a class="anchor" href="#default-consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The default consistency is now <code>CASS_CONSISTENCY_LOCAL_QUORUM</code> for driver
+versions 2.2 and above. It was <code>CASS_CONSISTENCY_ONE</code> for all previous versions
+(2.1 and below).</p>
 
 <h2 id="consistency-levels" class="target">Consistency Levels<a class="anchor" href="#consistency-levels" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
@@ -312,7 +392,11 @@
 <h3 id="read-and-write-consistency-levels" class="target">Read and Write Consistency Levels<a class="anchor" href="#read-and-write-consistency-levels" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
 
-<p>The consistency level determines the number of replicas on which the read/write must respond/succeed before returning an acknowledgment to the client application. Descriptions and Usage scenarios for each read/write consistency level can be found <a href="http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html">here</a>.</p>
+<p>The consistency level determines the number of replicas on which the read/write
+must respond/succeed before returning an acknowledgment to the client
+application. Descriptions and Usage scenarios for each read/write consistency
+level can be found
+<a href="http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html">here</a>.</p>
 
 <table class="table table-striped table-hover table-condensed">
   <thead>
@@ -384,13 +468,16 @@
 <h2 id="setting-consistency-level" class="target">Setting Consistency Level<a class="anchor" href="#setting-consistency-level" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>A <a href="http://datastax.github.io/cpp-driver/api/CassFuture/">‘CassStatement’</a> object can have its consistency level altered at anytime before the statement is executed by the session.</p>
+<p>A <a href="../../../api/struct.CassFuture/">‘CassStatement’</a> object
+can have its consistency level altered at anytime before the statement is
+executed by the session.</p>
 <pre class="highlight"><code><span class="cm">/* Create a simple or prepared statment */</span>
 
 <span class="cm">/* Ensure the session executed statement has strong consistency */</span>
 <span class="nb">cass_statement_set_consistency</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="n">CASS_CONSISTENCY_QUORUM</span><span class="p">);</span>
 </code></pre>
-<p><strong>NOTE:</strong> Consistency is ignored for <code>USE</code>, <code>TRUNCATE</code>, <code>CREATE</code> and <code>ALTER</code> statements, and some <code>CASS_CONSISTENCY_ANY</code> aren’t allowed in all situations.</p>
+<p><strong>NOTE:</strong> Consistency is ignored for <code>USE</code>, <code>TRUNCATE</code>, <code>CREATE</code> and <code>ALTER</code>
+statements, and some <code>CASS_CONSISTENCY_ANY</code> aren’t allowed in all situations.</p>
 
 
         </div>

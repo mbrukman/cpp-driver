@@ -433,7 +433,7 @@
 <h2 id="constructing-collections" class="target">Constructing Collections<a class="anchor" href="#constructing-collections" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Collections are supported using <a href="http://datastax.github.io/cpp-driver/api/CassCollection/"><code>CassCollection</code></a> objects; supporting <code>list</code>, <code>map</code> and <code>set</code> Cassandra types. The code below shows how to construct a <code>list</code> collection; however, a set can be constructed in a very similiar way. The only difference is the type <code>CASS_COLLECTION_TYPE_SET</code> is used to create the collection instead of <code>CASS_COLLECTION_TYPE_LIST</code>.</p>
+<p>Collections are supported using <a href="../../../api/struct.CassCollection/"><code>CassCollection</code></a> objects; supporting <code>list</code>, <code>map</code> and <code>set</code> Cassandra types. The code below shows how to construct a <code>list</code> collection; however, a set can be constructed in a very similiar way. The only difference is the type <code>CASS_COLLECTION_TYPE_SET</code> is used to create the collection instead of <code>CASS_COLLECTION_TYPE_LIST</code>.</p>
 
 <p><strong>Important</strong>: Values appended to the colleciton can be freed immediately afterward because the values are copied.</p>
 <pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>

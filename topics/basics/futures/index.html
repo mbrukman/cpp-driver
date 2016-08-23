@@ -186,6 +186,15 @@
   
   
   <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../consistency/">
       Consistency <small>page</small>
       
@@ -195,8 +204,44 @@
   
   
   <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../prepared_statements/">
       Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
       
     </a>
     
@@ -233,6 +278,10 @@
     <a href="../../configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -241,6 +290,28 @@
   <li>
     <a href="../../faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -304,12 +375,12 @@
 <h1 id="futures" class="target">Futures<a class="anchor" href="#futures" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p>Futures are returned from any driver call that would result in blocking the client application/thread. This allows the client application to continue processing and/or also submit multiple queries in succession. Although the driver has an asynchronous design it can be used sychronously by immediately attempting to get result or explicting waiting on the future.</p>
+<p>Futures are returned from any driver call that would result in blocking the client application/thread. This allows the client application to continue processing and/or also submit multiple queries in succession. Although the driver has an asynchronous design it can be used synchronously by immediately attempting to get result or explicitly waiting on the future.</p>
 
 <h2 id="waiting-for-results" class="target">Waiting for Results<a class="anchor" href="#waiting-for-results" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Futures results can be waited on indefinately by either calling a wait method or by attempting to get the result. They can also be waited on for an explict amount of time or periodically polled without waiting to execute application code.</p>
+<p>Futures results can be waited on indefinitely by either calling a wait method or by attempting to get the result. They can also be waited on for an explicit amount of time or periodically polled without waiting to execute application code.</p>
 
 <h3 id="synchronously-waiting-on-the-future" class="target">Synchronously Waiting on the Future<a class="anchor" href="#synchronously-waiting-on-the-future" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
@@ -331,7 +402,9 @@
 <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="nx">NULL</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* The error code and message will be set instead */</span>
   <span class="nc">CassError</span> <span class="n">error_code</span> <span class="o">=</span> <span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
-  <span class="nc">CassString</span> <span class="n">error_message</span> <span class="o">=</span> <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">error_message</span><span class="p">;</span>
+  <span class="kt">size_t</span> <span class="n">error_message_length</span><span class="p">;</span>
+  <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error_message</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error_message_length</span><span class="p">);</span>
 
   <span class="cm">/* Handle error */</span>
 <span class="p">}</span>
@@ -369,9 +442,9 @@
 <h2 id="callbacks" class="target">Callbacks<a class="anchor" href="#callbacks" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>A callback can be set on a future to notify the client application when a request has completed. Using a future callback is the lowest latency method of notification when waiting for several asynchronous operations.  </p>
+<p>A callback can be set on a future to notify the client application when a request has completed. Using a future callback is the lowest latency method of notification when waiting for several asynchronous operations.</p>
 
-<p><strong>Important</strong>: The driver may run the callback on thread that’s different from the application’s calling thread. Any data accessed in the callback must be immutable or synchronized with a mutex, semaphore, etc. </p>
+<p><strong>Important</strong>: The driver may run the callback on thread that’s different from the application’s calling thread. Any data accessed in the callback must be immutable or synchronized with a mutex, semaphore, etc.</p>
 <pre class="highlight"><code><span class="kt">void</span> <span class="nf">on_result</span><span class="p">(</span><span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* This result will now return immediately */</span>
   <span class="nc">CassError</span> <span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>

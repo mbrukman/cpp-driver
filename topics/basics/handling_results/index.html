@@ -186,6 +186,15 @@
   
   
   <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../consistency/">
       Consistency <small>page</small>
       
@@ -195,8 +204,44 @@
   
   
   <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../prepared_statements/">
       Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
       
     </a>
     
@@ -233,6 +278,10 @@
     <a href="../../configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -241,6 +290,28 @@
   <li>
     <a href="../../faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -304,21 +375,34 @@
 <h1 id="handling-results" class="target">Handling Results<a class="anchor" href="#handling-results" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p>The <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a> object is typically returned for <code>SELECT</code> statments. For mutations (<code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code>) only a status code will be present and can be accessed using <code>cass_future_error_code()</code>. However, when using lightweight transactions a result object will be available to check the status of the transaction. The result object is obtained from executed statements’ future object.</p>
+<p>The <a href="../../../api/struct.CassResult/"><code>CassResult</code></a> object
+is typically returned for <code>SELECT</code> statements. For mutations (<code>INSERT</code>, <code>UPDATE</code>,
+and <code>DELETE</code>) only a status code will be present and can be accessed using
+<code>cass_future_error_code()</code>. However, when using lightweight transactions a
+result object will be available to check the status of the transaction. The
+result object is obtained from executed statements’ future object.</p>
 
-<p><strong>Important</strong>: Rows, column values, collections, decimals, strings, and bytes objects are all invalidated when the result object is freed. All of these objects point to memory held by the result. This allows the driver to avoid unneccessarily copying data.</p>
+<p><strong>Important</strong>: Rows, column values, collections, decimals, strings, and bytes
+objects are all invalidated when the result object is freed. All of these
+objects point to memory held by the result. This allows the driver to avoid
+unnecessarily copying data.</p>
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
 
 <span class="cm">/* Process result */</span>
 
 <span class="nb">cass_result_free</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 </code></pre>
-<p><em>Note</em>: The result object is immutable and can be accessed by mutliple threads concurrently.</p>
+<p><em>Note</em>: The result object is immutable and can be accessed by multiple threads concurrently.</p>
 
 <h2 id="rows-and-column-values" class="target">Rows and Column Values<a class="anchor" href="#rows-and-column-values" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>The result object represents a collection of rows. The first row, if present, can be obtained using <code>cass_result_first_row()</code>. Multiple rows are accessed using a <a href="http://datastax.github.io/cpp-driver/api/CassIterator/"><code>CassIterator</code></a> object. After a row has been retrieved, the column value(s) can be accessed from a row by either index or by name. The iterator object can also be used with enumerated column values.</p>
+<p>The result object represents a collection of rows. The first row, if present,
+can be obtained using <code>cass_result_first_row()</code>. Multiple rows are accessed
+using a <a href="../../../api/struct.CassIterator/"><code>CassIterator</code></a>
+object. After a row has been retrieved, the column value(s) can be accessed from
+a row by either index or by name. The iterator object can also be used with
+enumerated column values.</p>
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassRow</span><span class="o">*</span> <span class="n">row</span> <span class="o">=</span> <span class="nb">cass_result_first_row</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 
 <span class="cm">/* Get the first column value using the index */</span>
@@ -329,22 +413,27 @@
 <span class="cm">/* Get the value of the column named "column1" */</span>
 <span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">column1</span> <span class="o">=</span> <span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"column1"</span><span class="p">);</span>
 </code></pre>
-<p>Once the <a href="(http://datastax.github.io/cpp-driver/api/CassValue/)"><code>CassValue</code></a> has been obtained from the column, the actual value can be retrieved and assigned into the proper datatype.</p>
+<p>Once the <a href="../../../api/struct.CassValue/"><code>CassValue</code></a>
+has been obtained from the column, the actual value can be retrieved and
+assigned into the proper datatype.</p>
 <pre class="highlight"><code><span class="nb">cass_int32_t</span> <span class="n">int_value</span><span class="p">;</span>
 <span class="nb">cass_value_get_int32</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">int_value</span><span class="p">);</span>
 
 <span class="nb">cass_int64_t</span> <span class="n">timestamp_value</span><span class="p">;</span>
 <span class="nb">cass_value_get_int32</span><span class="p">(</span><span class="n">column2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">timestamp_value</span><span class="p">);</span>
 
-<span class="nc">CassString</span> <span class="n">string_value</span><span class="p">;</span>
-<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">column3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">string_value</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">string_value</span><span class="p">;</span>
+<span class="kt">size_t</span> <span class="n">string_value_length</span><span class="p">;</span>
+<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">column3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">string_value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">string_value_length</span><span class="p">);</span>
 </code></pre>
 <h2 id="iterators" class="target">Iterators<a class="anchor" href="#iterators" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Iterators can be used to interate over the rows in a result, the columns in a row, or the values in a collection.</p>
+<p>Iterators can be used to iterate over the rows in a result, the columns in a
+row, or the values in a collection.</p>
 
-<p><strong>Important</strong>: <code>cass_iterator_next()</code> invalidates values retreived by the previous iteration.</p>
+<p><strong>Important</strong>: <code>cass_iterator_next()</code> invalidates values retrieved by the
+previous iteration.</p>
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
 
 <span class="nc">CassIterator</span><span class="o">*</span> <span class="n">iterator</span> <span class="o">=</span> <span class="nb">cass_iterator_from_result</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
@@ -356,7 +445,9 @@
 
 <span class="nb">cass_iterator_free</span><span class="p">(</span><span class="n">iterator</span><span class="p">);</span>
 </code></pre>
-<p>All iterators use the same pattern, but will have different iterator creation and retreival functions. Iterating over a map colleciton is slightly different because it has two values per entry, but utilizes the same basic pattern.</p>
+<p>All iterators use the same pattern, but will have different iterator creation
+and retrieval functions. Iterating over a map collection is slightly different
+because it has two values per entry, but utilizes the same basic pattern.</p>
 <pre class="highlight"><code><span class="cm">/* Execute SELECT query where a map colleciton is returned */</span>
 
 <span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
@@ -381,9 +472,14 @@
 <h2 id="paging" class="target">Paging<a class="anchor" href="#paging" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>When communicating with Cassandra 2.0 or later, large result sets can be divided into multiple pages automatically. The <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a> object keeps track of the pagination state for the sequence of paging queries. When paging through the result set, the result object is checked to see if more pages exist where it is then attached to the statement before re-executing the query to get the next page.</p>
-<pre class="highlight"><code><span class="nc">CassString</span> <span class="n">query</span> <span class="o">=</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"SELECT * FROM table1"</span><span class="p">);</span>
-<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<p>When communicating with Cassandra 2.0 or later, large result sets can be divided
+into multiple pages automatically. The
+<a href="../../../api/struct.CassResult/"><code>CassResult</code></a> object
+keeps track of the pagination state for the sequence of paging queries. When
+paging through the result set, the result object is checked to see if more pages
+exist where it is then attached to the statement before re-executing the query
+to get the next page.</p>
+<pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"SELECT * FROM table1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="cm">/* Return a 100 rows every time this statement is executed */</span>
 <span class="nb">cass_statement_set_paging_size</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
@@ -414,6 +510,14 @@
   <span class="nb">cass_result_free</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
+<p>The <a href="../../../api/struct.CassStatement/#cass-statement-set-paging-state"><code>cass_statement_set_paging_state()</code></a> function abstracts the actual paging
+state token away from the application. The raw paging state token can be
+accessed using <a href="../../../api/struct.CassResult/#cass-result-paging-state"><code>cass_result_paging_state()</code></a> and added to a statement using
+<a href="../../../api/struct.CassStatement/#cass-statement-set-paging-state-token"><code>cass_statement_set_paging_state_token()</code></a>.</p>
+
+<p><strong>Warning</strong>: The paging state token should not be exposed to or come from
+untrusted environments. That paging state could be spoofed and potentially used
+to gain access to other data.</p>
 
 
         </div>

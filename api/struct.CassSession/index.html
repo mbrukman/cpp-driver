@@ -112,8 +112,26 @@
   
   
   <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticator/">
+      CassAuthenticator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticatorCallbacks/">
+      CassAuthenticatorCallbacks <small>struct</small>
       
     </a>
     
@@ -123,15 +141,6 @@
   <li>
     <a href="../struct.CassBatch/">
       CassBatch <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassBytes/">
-      CassBytes <small>struct</small>
       
     </a>
     
@@ -157,8 +166,44 @@
   
   
   <li>
-    <a href="../struct.CassDecimal/">
-      CassDecimal <small>struct</small>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
       
     </a>
     
@@ -168,6 +213,15 @@
   <li>
     <a href="../struct.CassFuture/">
       CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
       
     </a>
     
@@ -193,8 +247,35 @@
   
   
   <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassLogMessage/">
       CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
       
     </a>
     
@@ -220,6 +301,15 @@
   
   
   <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassRow/">
       CassRow <small>struct</small>
       
@@ -229,26 +319,8 @@
   
   
   <li>
-    <a href="../struct.CassSchema/">
-      CassSchema <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
     <a href="../struct.CassSchemaMeta/">
       CassSchemaMeta <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassSchemaMetaField/">
-      CassSchemaMetaField <small>struct</small>
       
     </a>
     
@@ -286,8 +358,35 @@
   
   
   <li>
-    <a href="../struct.CassString/">
-      CassString <small>struct</small>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
       
     </a>
     
@@ -315,6 +414,24 @@
   <li>
     <a href="../struct.CassValue/">
       CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
       
     </a>
     
@@ -406,7 +523,7 @@
 </h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Frees a session instance. If the session is still connected it will be syncronously closed before being deallocated.</p>
+      <p>Frees a session instance. If the session is still connected it will be synchronously closed before being deallocated.</p>
 
 <p>Important: Do not free a session in a future callback. Freeing a session in a future callback will cause a deadlock.</p>
 
@@ -458,7 +575,9 @@
 <small>in</small> <var>cluster</var>
 </td>
 <td><code>const <a href="../struct.CassCluster/">CassCluster</a> *</code></td>
-<td></td>
+<td>
+<p>The cluster configuration is copied into the session and is immutable after connection.</p>
+</td>
 </tr>
 </tbody>
 </table></dd>
@@ -509,7 +628,9 @@
 <small>in</small> <var>cluster</var>
 </td>
 <td><code>const <a href="../struct.CassCluster/">CassCluster</a> *</code></td>
-<td></td>
+<td>
+<p>The cluster configuration is copied into the session and is immutable after connection.</p>
+</td>
 </tr>
 <tr>
 <td>
@@ -535,6 +656,71 @@
 </table></dd>
 <dt class="tag-title">See Also:</dt>
 <dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_session_close">CassSession::cass_session_close</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_connect_keyspace_n" class="target">cass_session_connect_keyspace_n<a class="anchor" href="#function-cass_session_connect_keyspace_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const <a href="../struct.CassCluster/">CassCluster</a> *</code> cluster, <code>const char *</code> keyspace, <code>size_t</code> keyspace_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_session_connect_keyspace">CassSession::cass_session_connect_keyspace</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>session</var>
+</td>
+<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>cluster</var>
+</td>
+<td><code>const <a href="../struct.CassCluster/">CassCluster</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>keyspace</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>keyspace_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../struct.CassFuture/">CassFuture</a> *</code></td>
+<td>
+<p>same as <code><a href="#function-cass_session_connect_keyspace">CassSession::cass_session_connect_keyspace</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_session_connect_keyspace">CassSession::cass_session_connect_keyspace</a></code></li></ul></dd>
 </dl>
     </div>
   </div>
@@ -581,7 +767,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_prepare" class="target">cass_session_prepare<a class="anchor" href="#function-cass_session_prepare" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code><a href="../struct.CassString/">CassString</a></code> query <big>)</big>
+</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const char *</code> query <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Create a prepared statement.</p>
@@ -606,7 +792,7 @@
 <td>
 <small>in</small> <var>query</var>
 </td>
-<td><code><a href="../struct.CassString/">CassString</a></code></td>
+<td><code>const char *</code></td>
 <td>
 <p>The query is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -628,6 +814,64 @@
 </table></dd>
 <dt class="tag-title">See Also:</dt>
 <dd class="tag-content"><ul class="see"><li><code><a href="../struct.CassFuture/#function-cass_future_get_prepared">CassFuture::cass_future_get_prepared</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_prepare_n" class="target">cass_session_prepare_n<a class="anchor" href="#function-cass_session_prepare_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const char *</code> query, <code>size_t</code> query_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_session_prepare">CassSession::cass_session_prepare</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>session</var>
+</td>
+<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>query</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>query_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../struct.CassFuture/">CassFuture</a> *</code></td>
+<td>
+<p>same as <code><a href="#function-cass_session_prepare">CassSession::cass_session_prepare</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_session_prepare">CassSession::cass_session_prepare</a></code></li></ul></dd>
 </dl>
     </div>
   </div>
@@ -690,6 +934,8 @@
     <div class="panel-body function-body">
       <p>Execute a batch statement.</p>
 
+<p><strong>Requires Cassandra:</strong> 2.0+</p>
+
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
 <dd class="tag-content"><table class="table table-striped param">
@@ -735,11 +981,11 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
-      <code>const <a href="../struct.CassSchema/">CassSchema</a> *</code> <h3 id="function-cass_session_get_schema" class="target">cass_session_get_schema<a class="anchor" href="#function-cass_session_get_schema" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session <big>)</big>
+      <code>const <a href="../struct.CassSchemaMeta/">CassSchemaMeta</a> *</code> <h3 id="function-cass_session_get_schema_meta" class="target">cass_session_get_schema_meta<a class="anchor" href="#function-cass_session_get_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSession</a> *</code> session <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Gets a copy of this session’s schema metadata. The returned copy of the schema metadata is not updated. This function must be called again to retrieve any schema changes since the previous call.</p>
+      <p>Gets a snapshot of this session’s schema metadata. The returned snapshot of the schema metadata is not updated. This function must be called again to retrieve any schema changes since the previous call.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -753,7 +999,7 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td><code>const <a href="./">CassSession</a> *</code></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -764,14 +1010,52 @@
 <th class="details">Details</th>
 </tr></thead>
 <tbody><tr>
-<td><code>const <a href="../struct.CassSchema/">CassSchema</a> *</code></td>
+<td><code>const <a href="../struct.CassSchemaMeta/">CassSchemaMeta</a> *</code></td>
 <td>
 <p>A schema instance that must be freed.</p>
 </td>
 </tr></tbody>
 </table></dd>
 <dt class="tag-title">See Also:</dt>
-<dd class="tag-content"><ul class="see"><li><code><a href="../struct.CassSchema/#function-cass_schema_free">CassSchema::cass_schema_free</a></code></li></ul></dd>
+<dd class="tag-content"><ul class="see"><li>cass_schema_free()</li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_session_get_metrics" class="target">cass_session_get_metrics<a class="anchor" href="#function-cass_session_get_metrics" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassSession</a> *</code> session, <code><a href="../struct.CassMetrics/">CassMetrics</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets a copy of this session’s performance/diagnostic metrics.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>session</var>
+</td>
+<td><code>const <a href="./">CassSession</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="../struct.CassMetrics/">CassMetrics</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li>cass_schema_free()</li></ul></dd>
 </dl>
     </div>
   </div>

@@ -46,7 +46,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../../">v2.4</a></li>
+                  <li><a href="../../../../topics/basics/user_defined_types/">v2.4</a></li>
                 
                   <li><a href="../../../../v2.3/topics/basics/user_defined_types/">v2.3</a></li>
                 
@@ -374,8 +374,8 @@ created from a manually defined data type.</p>
 <h2 id="creating-a-udt-from-schema" class="target">Creating a UDT from Schema<a class="anchor" href="#creating-a-udt-from-schema" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>An <a href="http://datastax.github.io/cpp-driver/api/CassSchema/"><code>CassSchema</code></a> instance can be used to construct a new <a href="http://datastax.github.io/cpp-driver/api/CassUserType/"><code>CassUserType</code></a>. The
-<a href="http://datastax.github.io/cpp-driver/api/CassSchema/"><code>CassSchema</code></a> instance returns a <a href="http://datastax.github.io/cpp-driver/api/CassDataType/"><code>CassDataType</code></a> object which is used to
+<p>An <a href="../../../api/struct.CassSchema/"><code>CassSchema</code></a> instance can be used to construct a new <a href="../../../api/struct.CassUserType/"><code>CassUserType</code></a>. The
+<a href="../../../api/struct.CassSchema/"><code>CassSchema</code></a> instance returns a <a href="../../../api/struct.CassDataType/"><code>CassDataType</code></a> object which is used to
 describe Cassandra types including UDTs, tuples, collections and all basic types
 (<code>int</code>, <code>bigint</code>, <code>uuid</code>, etc.).</p>
 <pre class="highlight"><code><span class="nc">CassSchema</span><span class="o">*</span> <span class="n">schema</span> <span class="o">=</span> <span class="nb">cass_session_get_schema</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
@@ -390,7 +390,7 @@ describe Cassandra types including UDTs, tuples, collections and all basic types
 </h2>
 
 <p>If schema metadata updates are disabled it is still possible to create UDTs
-from a manually construct <a href="http://datastax.github.io/cpp-driver/api/CassDataType/"><code>CassDataType</code></a>.</p>
+from a manually construct <a href="../../../api/struct.CassDataType/"><code>CassDataType</code></a>.</p>
 <pre class="highlight"><code><span class="nc">CassDataType</span><span class="o">*</span> <span class="n">data_type</span> <span class="o">=</span> <span class="nb">cass_data_type_new_udt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
 <span class="nb">cass_data_type_add_sub_value_type_by_name</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="s">"field1"</span><span class="p">,</span>
@@ -407,7 +407,7 @@ from a manually construct <a href="http://datastax.github.io/cpp-driver/api/Cass
 <span class="nb">cass_data_type_free</span><span class="p">(</span><span class="n">data_type</span><span class="p">);</span>
 </code></pre>
 <p>The preceding code is equivalent to defining the following schema and using
-<a href="http://datastax.github.io/cpp-driver/api/CassSession/#cass-session-get-schema"><code>cass_session_get_schema()</code></a> obtain the data type.</p>
+<a href="../../../api/struct.CassSession/#cass-session-get-schema"><code>cass_session_get_schema()</code></a> obtain the data type.</p>
 <pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TYPE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">udt</span> <span class="p">(</span><span class="n">field1</span> <span class="k">int</span><span class="p">,</span> <span class="n">field2</span> <span class="k">uuid</span><span class="p">,</span> <span class="n">field3</span> <span class="k">text</span><span class="p">);</span>
 </code></pre>
 <h2 id="consuming-values-from-a-udt-result" class="target">Consuming values from a UDT result<a class="anchor" href="#consuming-values-from-a-udt-result" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>

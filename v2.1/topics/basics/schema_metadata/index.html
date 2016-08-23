@@ -405,7 +405,7 @@ is monitored by the control connection and automatically kept up-to-date.</p>
 <span class="cm">/* All values derived from the schema are cleaned up */</span>
 <span class="nb">cass_schema_free</span><span class="p">(</span><span class="n">schema</span><span class="p">);</span>
 </code></pre>
-<p>The snapshot obtained by <a href="http://datastax.github.io/cpp-driver/api/CassSession/#cass-session-get-schema"><code>cass_session_get_schema()</code></a> will not see schema changes
+<p>The snapshot obtained by <a href="../../../api/struct.CassSession/#cass-session-get-schema"><code>cass_session_get_schema()</code></a> will not see schema changes
 that happened after the call. A new snapshot needs to be obtained to see
 subsequent updates to the schema.</p>
 

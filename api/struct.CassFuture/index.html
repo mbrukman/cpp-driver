@@ -112,8 +112,26 @@
   
   
   <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticator/">
+      CassAuthenticator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticatorCallbacks/">
+      CassAuthenticatorCallbacks <small>struct</small>
       
     </a>
     
@@ -123,15 +141,6 @@
   <li>
     <a href="../struct.CassBatch/">
       CassBatch <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassBytes/">
-      CassBytes <small>struct</small>
       
     </a>
     
@@ -157,8 +166,44 @@
   
   
   <li>
-    <a href="../struct.CassDecimal/">
-      CassDecimal <small>struct</small>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
       
     </a>
     
@@ -174,6 +219,15 @@
   
 </ul>
 
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
+      
+    </a>
+    
   </li>
   
   
@@ -196,8 +250,35 @@
   
   
   <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassLogMessage/">
       CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
       
     </a>
     
@@ -223,6 +304,15 @@
   
   
   <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassRow/">
       CassRow <small>struct</small>
       
@@ -232,26 +322,8 @@
   
   
   <li>
-    <a href="../struct.CassSchema/">
-      CassSchema <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
     <a href="../struct.CassSchemaMeta/">
       CassSchemaMeta <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassSchemaMetaField/">
-      CassSchemaMetaField <small>struct</small>
       
     </a>
     
@@ -286,8 +358,35 @@
   
   
   <li>
-    <a href="../struct.CassString/">
-      CassString <small>struct</small>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
       
     </a>
     
@@ -315,6 +414,24 @@
   <li>
     <a href="../struct.CassValue/">
       CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
       
     </a>
     
@@ -502,7 +619,7 @@
     <div class="panel-body function-body">
       <p>Wait for the future to be set with either a result or error.</p>
 
-<p>Important: Do not wait in a future callback. Waiting in a future callback will cause a deadlock.</p>
+<p><strong>Important:</strong> Do not wait in a future callback. Waiting in a future callback will cause a deadlock.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -580,7 +697,7 @@
 </h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Gets the result of a successful future. If the future is not ready this method will wait for the future to be set. The first successful call consumes the future, all subsequent calls will return NULL.</p>
+      <p>Gets the result of a successful future. If the future is not ready this method will wait for the future to be set.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -608,6 +725,50 @@
 <td><code>const <a href="../struct.CassResult/">CassResult</a> *</code></td>
 <td>
 <p><code><a href="../struct.CassResult/">CassResult</a></code> instance if successful, otherwise NULL for error. The return instance must be freed using <code><a href="../struct.CassResult/#function-cass_result_free">CassResult::cass_result_free</a></code>.</p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li>
+<code><a href="../struct.CassSession/#function-cass_session_execute">CassSession::cass_session_execute</a></code> and <code><a href="../struct.CassSession/#function-cass_session_execute_batch">CassSession::cass_session_execute_batch</a></code>
+</li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassErrorResult/">CassErrorResult</a> *</code> <h3 id="function-cass_future_get_error_result" class="target">cass_future_get_error_result<a class="anchor" href="#function-cass_future_get_error_result" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the error result from a future that failed as a result of a server error. If the future is not ready this method will wait for the future to be set.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>future</var>
+</td>
+<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassErrorResult/">CassErrorResult</a> *</code></td>
+<td>
+<p><code><a href="../struct.CassErrorResult/">CassErrorResult</a></code> instance if the request failed with a server error, otherwise NULL if the request was successful or the failure was not caused by a server error. The return instance must be freed using <code><a href="../struct.CassErrorResult/#function-cass_error_result_free">CassErrorResult::cass_error_result_free</a></code>.</p>
 </td>
 </tr></tbody>
 </table></dd>
@@ -704,11 +865,58 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
-      <code><a href="../struct.CassString/">CassString</a></code> <h3 id="function-cass_future_error_message" class="target">cass_future_error_message<a class="anchor" href="#function-cass_future_error_message" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+      <code>void</code> <h3 id="function-cass_future_error_message" class="target">cass_future_error_message<a class="anchor" href="#function-cass_future_error_message" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future, <code>const char **</code> message, <code>size_t *</code> message_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the error message from future. If the future is not ready this method will wait for the future to be set.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>future</var>
+</td>
+<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>message</var>
+</td>
+<td><code>const char **</code></td>
+<td>
+<p>Empty string returned if successful, otherwise a message describing the error is returned.</p>
+</td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>message_length</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>size_t</code> <h3 id="function-cass_future_custom_payload_item_count" class="target">cass_future_custom_payload_item_count<a class="anchor" href="#function-cass_future_custom_payload_item_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets a the number of custom payload items from a response future. If the future is not ready this method will wait for the future to be set.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -733,9 +941,88 @@
 <th class="details">Details</th>
 </tr></thead>
 <tbody><tr>
-<td><code><a href="../struct.CassString/">CassString</a></code></td>
+<td><code>size_t</code></td>
 <td>
-<p>Empty string returned if successful, otherwise a message describing the error is returned.</p>
+<p>the number of custom payload items.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_future_custom_payload_item" class="target">cass_future_custom_payload_item<a class="anchor" href="#function-cass_future_custom_payload_item" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future, <code>size_t</code> index, <code>const char **</code> name, <code>size_t *</code> name_length, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> value, <code>size_t *</code> value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets a custom payload item from a response future at the specified index. If the future is not ready this method will wait for the future to be set.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>future</var>
+</td>
+<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>name</var>
+</td>
+<td><code>const char **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>name_length</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>value</var>
+</td>
+<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>value_size</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
 </td>
 </tr></tbody>
 </table></dd>

@@ -112,8 +112,26 @@
   
   
   <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticator/">
+      CassAuthenticator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticatorCallbacks/">
+      CassAuthenticatorCallbacks <small>struct</small>
       
     </a>
     
@@ -123,15 +141,6 @@
   <li>
     <a href="../struct.CassBatch/">
       CassBatch <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassBytes/">
-      CassBytes <small>struct</small>
       
     </a>
     
@@ -157,8 +166,44 @@
   
   
   <li>
-    <a href="../struct.CassDecimal/">
-      CassDecimal <small>struct</small>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
       
     </a>
     
@@ -168,6 +213,15 @@
   <li>
     <a href="../struct.CassFuture/">
       CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
       
     </a>
     
@@ -193,8 +247,35 @@
   
   
   <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassLogMessage/">
       CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
       
     </a>
     
@@ -220,6 +301,15 @@
   
   
   <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassRow/">
       CassRow <small>struct</small>
       
@@ -229,26 +319,8 @@
   
   
   <li>
-    <a href="../struct.CassSchema/">
-      CassSchema <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
     <a href="../struct.CassSchemaMeta/">
       CassSchemaMeta <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassSchemaMetaField/">
-      CassSchemaMetaField <small>struct</small>
       
     </a>
     
@@ -286,8 +358,35 @@
   
   
   <li>
-    <a href="../struct.CassString/">
-      CassString <small>struct</small>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
       
     </a>
     
@@ -315,6 +414,24 @@
   <li>
     <a href="../struct.CassValue/">
       CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
       
     </a>
     
@@ -428,7 +545,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_add_trusted_cert" class="target">cass_ssl_add_trusted_cert<a class="anchor" href="#function-cass_ssl_add_trusted_cert" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code><a href="../struct.CassString/">CassString</a></code> cert <big>)</big>
+</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a trusted certificate. This is used to verify the peer’s certificate.</p>
@@ -453,7 +570,7 @@
 <td>
 <small>in</small> <var>cert</var>
 </td>
-<td><code><a href="../struct.CassString/">CassString</a></code></td>
+<td><code>const char *</code></td>
 <td>
 <p>PEM formatted certificate string</p>
 </td>
@@ -478,15 +595,73 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_add_trusted_cert_n" class="target">cass_ssl_add_trusted_cert_n<a class="anchor" href="#function-cass_ssl_add_trusted_cert_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert, <code>size_t</code> cert_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_ssl_add_trusted_cert">CassSsl::cass_ssl_add_trusted_cert</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>ssl</var>
+</td>
+<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>cert</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>cert_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_ssl_add_trusted_cert">CassSsl::cass_ssl_add_trusted_cert</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_ssl_add_trusted_cert">CassSsl::cass_ssl_add_trusted_cert</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_ssl_set_verify_flags" class="target">cass_ssl_set_verify_flags<a class="anchor" href="#function-cass_ssl_set_verify_flags" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>int</code> flags <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Sets verifcation performed on the peer’s certificate.</p>
+      <p>Sets verification performed on the peer’s certificate.</p>
 
-<p>CASS_SSL_VERIFY_NONE - No verification is performed CASS_SSL_VERIFY_PEER_CERT - Certificate is present and valid CASS_SSL_VERIFY_PEER_IDENTITY - IP address matches the certificate’s common name or one of its subject alternative names. This implies the certificate is also present.</p>
+<p>CASS_SSL_VERIFY_NONE - No verification is performed CASS_SSL_VERIFY_PEER_CERT - Certificate is present and valid CASS_SSL_VERIFY_PEER_IDENTITY - IP address matches the certificate’s common name or one of its subject alternative names. This implies the certificate is also present. CASS_SSL_VERIFY_PEER_IDENTITY_DNS - Hostname matches the certificate’s common name or one of its subject alternative names. This implies the certificate is also present. Hostname resolution must also be enabled.</p>
 
-<p>Default: CASS_SSL_VERIFY_PEER_CERT</p>
+<p><strong>Default:</strong> CASS_SSL_VERIFY_PEER_CERT</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -526,13 +701,15 @@
 </td>
 </tr></tbody>
 </table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="../struct.CassCluster/#function-cass_cluster_set_use_hostname_resolution">CassCluster::cass_cluster_set_use_hostname_resolution</a></code></li></ul></dd>
 </dl>
     </div>
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_cert" class="target">cass_ssl_set_cert<a class="anchor" href="#function-cass_ssl_set_cert" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code><a href="../struct.CassString/">CassString</a></code> cert <big>)</big>
+</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Set client-side certificate chain. This is used to authenticate the client on the server-side. This should contain the entire Certificate chain starting with the certificate itself.</p>
@@ -557,7 +734,7 @@
 <td>
 <small>in</small> <var>cert</var>
 </td>
-<td><code><a href="../struct.CassString/">CassString</a></code></td>
+<td><code>const char *</code></td>
 <td>
 <p>PEM formatted certificate string</p>
 </td>
@@ -582,8 +759,66 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_cert_n" class="target">cass_ssl_set_cert_n<a class="anchor" href="#function-cass_ssl_set_cert_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert, <code>size_t</code> cert_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_ssl_set_cert">CassSsl::cass_ssl_set_cert</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>ssl</var>
+</td>
+<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>cert</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>cert_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_ssl_set_cert">CassSsl::cass_ssl_set_cert</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_ssl_set_cert">CassSsl::cass_ssl_set_cert</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_private_key" class="target">cass_ssl_set_private_key<a class="anchor" href="#function-cass_ssl_set_private_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code><a href="../struct.CassString/">CassString</a></code> key, <code>const char *</code> password <big>)</big>
+</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> key, <code>const char *</code> password <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Set client-side private key. This is used to authenticate the client on the server-side.</p>
@@ -608,7 +843,7 @@
 <td>
 <small>in</small> <var>key</var>
 </td>
-<td><code><a href="../struct.CassString/">CassString</a></code></td>
+<td><code>const char *</code></td>
 <td>
 <p>PEM formatted key string</p>
 </td>
@@ -637,6 +872,78 @@
 </td>
 </tr></tbody>
 </table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_private_key_n" class="target">cass_ssl_set_private_key_n<a class="anchor" href="#function-cass_ssl_set_private_key_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> key, <code>size_t</code> key_length, <code>const char *</code> password, <code>size_t</code> password_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_ssl_set_private_key">CassSsl::cass_ssl_set_private_key</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>ssl</var>
+</td>
+<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>key</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>key_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>password</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>password_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_ssl_set_private_key">CassSsl::cass_ssl_set_private_key</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_ssl_set_private_key">CassSsl::cass_ssl_set_private_key</a></code></li></ul></dd>
 </dl>
     </div>
   </div>

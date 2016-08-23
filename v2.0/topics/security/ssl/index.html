@@ -306,7 +306,7 @@
 <h2 id="setting-up-the-c-c-driver-to-use-ssl" class="target">Setting up the C/C++ Driver to Use SSL<a class="anchor" href="#setting-up-the-c-c-driver-to-use-ssl" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>A <a href="http://datastax.github.io/cpp-driver/api/CassSsl/"><code>CassSsl</code></a> object is required and must be configured:</p>
+<p>A <a href="../../../api/struct.CassSsl/"><code>CassSsl</code></a> object is required and must be configured:</p>
 <pre class="highlight"><code><span class="cp">#include &lt;cassandra.h&gt;
 </span>
 <span class="kt">void</span> <span class="nf">setup_ssl</span><span class="p">(</span><span class="nc">CassCluster</span><span class="o">*</span> <span class="n">cluster</span><span class="p">)</span> <span class="p">{</span>
@@ -325,7 +325,7 @@
 <h4 id="exporting-and-loading-the-cassandra-public-key" class="target">Exporting and Loading the Cassandra Public Key<a class="anchor" href="#exporting-and-loading-the-cassandra-public-key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h4>
 
-<p>The default setting of the driver is to verify the certifcate sent during the SSL handshake. For the driver to properly verify the Cassandra certifcate the driver needs either the public key from the self-signed public key or the CA certificate chain used to sign the public key. To have this work, extract the public key from the Cassandra keystore generated in the previous steps. This exports a <a href="https://www.openssl.org/docs/crypto/pem.html#PEM_ENCRYPTION_FORMAT">PEM formatted</a> certficate which is required by the C/C++ driver.</p>
+<p>The default setting of the driver is to verify the certifcate sent during the SSL handshake. For the driver to properly verify the Cassandra certifcate the driver needs either the public key from the self-signed public key or the CA certificate chain used to sign the public key. To have this work, extract the public key from the Cassandra keystore generated in the previous steps. This exports a <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail#PEM_ENCRYPTION_FORMAT">PEM formatted</a> certficate which is required by the C/C++ driver.</p>
 <pre class="highlight"><code>keytool -exportcert -rfc -noprompt <span class="se">\</span>
   -alias node <span class="se">\</span>
   -keystore keystore.jks <span class="se">\</span>

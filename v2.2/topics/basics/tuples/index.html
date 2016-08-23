@@ -46,7 +46,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../../">v2.4</a></li>
+                  <li><a href="../../../../topics/basics/tuples/">v2.4</a></li>
                 
                   <li><a href="../../../../v2.3/topics/basics/tuples/">v2.3</a></li>
                 
@@ -382,7 +382,7 @@ accessed by position and not by name.</p>
 <h2 id="creating-a-tuple" class="target">Creating a Tuple<a class="anchor" href="#creating-a-tuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Creating a <a href="http://datastax.github.io/cpp-driver/api/CassTuple/"><code>CassTuple</code></a> is done by allocating a new tuple object with the
+<p>Creating a <a href="../../../api/struct.CassTuple/"><code>CassTuple</code></a> is done by allocating a new tuple object with the
 number of items that will be contained in it. Items can the be set in the tuple
 using their position.</p>
 <pre class="highlight"><code><span class="cm">/* The number of items must be set properly */</span>
@@ -403,7 +403,7 @@ using their position.</p>
 <p>A tuple can also be created using a [<code>CassDataType</code>] that comes from schema
 metadata or is manually constructed. However, this is not step necessary as
 a tuple can be created without a data type. A typed tuple will not allow invalid
-type to be added to it. <a href="http://datastax.github.io/cpp-driver/api/CassTuple/#cass-tuple-set-null"><code>cass_tuple_set_*()</code></a> functions will return an error
+type to be added to it. <a href="../../../api/struct.CassTuple/#cass-tuple-set-null"><code>cass_tuple_set_*()</code></a> functions will return an error
 code if the incorrect type is added to a position.</p>
 <pre class="highlight"><code><span class="cm">/* Creata new tuple data type */</span>
 <span class="nc">CassDataType</span><span class="o">*</span> <span class="n">data_type</span> <span class="o">=</span> <span class="nb">cass_data_type_new_tuple</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -437,7 +437,7 @@ code if the incorrect type is added to a position.</p>
 <h2 id="consuming-values-from-a-tuple-result" class="target">Consuming values from a Tuple result<a class="anchor" href="#consuming-values-from-a-tuple-result" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p><a href="http://datastax.github.io/cpp-driver/api/CassTuple/"><code>CassTuple</code></a>s are consumed using an iterator.</p>
+<p><a href="../../../api/struct.CassTuple/"><code>CassTuple</code></a>s are consumed using an iterator.</p>
 <pre class="highlight"><code><span class="cm">/* Retrieve tuple value from column */</span>
 <span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">tuple_value</span> <span class="o">=</span> <span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"value1"</span><span class="p">);</span>
 

@@ -46,7 +46,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../../">v2.4</a></li>
+                  <li><a href="../../../../topics/basics/data_types/">v2.4</a></li>
                 
                   <li><a href="../../../../v2.3/topics/basics/data_types/">v2.3</a></li>
                 
@@ -375,7 +375,7 @@
 <h1 id="data-types" class="target">Data Types<a class="anchor" href="#data-types" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p><a href="http://datastax.github.io/cpp-driver/api/CassDataType/"><code>CassDataType</code></a> objects are useful for describing the different values that can
+<p><a href="../../../api/struct.CassDataType/"><code>CassDataType</code></a> objects are useful for describing the different values that can
 be stored in Cassandra, from primitive types to more complex composite types
 such as UDTs, tuples and collections. Data types can be retrieved from existing
 metadata found in schema, results, values or prepared statements or they can be
@@ -394,9 +394,9 @@ constructed programmatically.</p>
 <p><strong>Important</strong>: Any <code>const [CassDataType]*</code> object doesn’t need to be freed. Its
 lifetime is bound to the object it came from.</p>
 
-<p>UDT data types can be retrieved using a <a href="http://datastax.github.io/cpp-driver/api/CassSchemaMeta/"><code>CassSchemaMeta</code></a> object. The resulting
+<p>UDT data types can be retrieved using a <a href="../../../api/struct.CassSchemaMeta/"><code>CassSchemaMeta</code></a> object. The resulting
 data type object can be used to construct a new [<code>CassUserType</code>] object using
-<a href="http://datastax.github.io/cpp-driver/api/CassUserType/#cass-user-type-new-from-data-type"><code>cass_user_type_new_from_data_type()</code></a>.</p>
+<a href="../../../api/struct.CassUserType/#cass-user-type-new-from-data-type"><code>cass_user_type_new_from_data_type()</code></a>.</p>
 <pre class="highlight"><code><span class="cm">/* Get schema object (this should be cached) */</span>
 <span class="k">const</span> <span class="nc">CassSchemaMeta</span><span class="o">*</span> <span class="n">schema_meta</span> <span class="o">=</span> <span class="nb">cass_session_get_schema_meta</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
 
@@ -413,24 +413,24 @@ data type object can be used to construct a new [<code>CassUserType</code>] obje
 <span class="cm">/* Schema object must be freed */</span>
 <span class="nb">cass_schema_meta_free</span><span class="p">(</span><span class="n">schema_meta</span><span class="p">);</span>
 </code></pre>
-<p>Data types can also be retrieved from <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a>, <a href="http://datastax.github.io/cpp-driver/api/CassPrepared/"><code>CassPrepared</code></a>, and
-<a href="http://datastax.github.io/cpp-driver/api/CassValue/"><code>CassValue</code></a> objects.</p>
+<p>Data types can also be retrieved from <a href="../../../api/struct.CassResult/"><code>CassResult</code></a>, <a href="../../../api/struct.CassPrepared/"><code>CassPrepared</code></a>, and
+<a href="../../../api/struct.CassValue/"><code>CassValue</code></a> objects.</p>
 
 <ul>
 <li>
-<a href="http://datastax.github.io/cpp-driver/api/CassResult/#cass-result-column-data-type"><code>cass_result_column_data_type()</code></a> can be used to get the
-data type of a column for a <a href="http://datastax.github.io/cpp-driver/api/CassResult/"><code>CassResult</code></a>.
+<a href="../../../api/struct.CassResult/#cass-result-column-data-type"><code>cass_result_column_data_type()</code></a> can be used to get the
+data type of a column for a <a href="../../../api/struct.CassResult/"><code>CassResult</code></a>.
 
 <ul>
 <li>
-<a href="http://datastax.github.io/cpp-driver/api/CassPrepared/#cass-prepared-parameter-data-type"><code>cass_prepared_parameter_data_type()</code></a> can be used to get the data type of
-the parameters for a <a href="http://datastax.github.io/cpp-driver/api/CassPrepared/"><code>CassPrepared</code></a> object. There are also functions to get
+<a href="../../../api/struct.CassPrepared/#cass-prepared-parameter-data-type"><code>cass_prepared_parameter_data_type()</code></a> can be used to get the data type of
+the parameters for a <a href="../../../api/struct.CassPrepared/"><code>CassPrepared</code></a> object. There are also functions to get
 the data type of a prepared parameter by name.</li>
 </ul>
 </li>
 <li>
-<a href="http://datastax.github.io/cpp-driver/api/CassValue/#cass-value-data-type"><code>cass_value_data_type()</code></a> can be used to get the data type represented by a
-<a href="http://datastax.github.io/cpp-driver/api/CassValue/"><code>CassValue</code></a> object.</li>
+<a href="../../../api/struct.CassValue/#cass-value-data-type"><code>cass_value_data_type()</code></a> can be used to get the data type represented by a
+<a href="../../../api/struct.CassValue/"><code>CassValue</code></a> object.</li>
 </ul>
 
 <h2 id="programmatically-building-a-data-type" class="target">Programmatically Building a Data Type<a class="anchor" href="#programmatically-building-a-data-type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>

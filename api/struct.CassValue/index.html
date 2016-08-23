@@ -112,8 +112,26 @@
   
   
   <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticator/">
+      CassAuthenticator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticatorCallbacks/">
+      CassAuthenticatorCallbacks <small>struct</small>
       
     </a>
     
@@ -123,15 +141,6 @@
   <li>
     <a href="../struct.CassBatch/">
       CassBatch <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassBytes/">
-      CassBytes <small>struct</small>
       
     </a>
     
@@ -157,8 +166,44 @@
   
   
   <li>
-    <a href="../struct.CassDecimal/">
-      CassDecimal <small>struct</small>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
       
     </a>
     
@@ -168,6 +213,15 @@
   <li>
     <a href="../struct.CassFuture/">
       CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
       
     </a>
     
@@ -193,8 +247,35 @@
   
   
   <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassLogMessage/">
       CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
       
     </a>
     
@@ -220,6 +301,15 @@
   
   
   <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassRow/">
       CassRow <small>struct</small>
       
@@ -229,26 +319,8 @@
   
   
   <li>
-    <a href="../struct.CassSchema/">
-      CassSchema <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
     <a href="../struct.CassSchemaMeta/">
       CassSchemaMeta <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../struct.CassSchemaMetaField/">
-      CassSchemaMetaField <small>struct</small>
       
     </a>
     
@@ -283,8 +355,35 @@
   
   
   <li>
-    <a href="../struct.CassString/">
-      CassString <small>struct</small>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
       
     </a>
     
@@ -318,6 +417,24 @@
   
 </ul>
 
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
+      
+    </a>
+    
   </li>
   
 </ul>
@@ -457,6 +574,236 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
+      <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_tuple" class="target">cass_iterator_from_tuple<a class="anchor" href="#function-cass_iterator_from_tuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Creates a new iterator for the specified tuple. This can be used to iterate over values in a tuple.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../struct.CassIterator/">CassIterator</a> *</code></td>
+<td>
+<p>A new iterator that must be freed. NULL returned if the value is not a tuple.</p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="../struct.CassIterator/#function-cass_iterator_free">CassIterator::cass_iterator_free</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_user_type" class="target">cass_iterator_fields_from_user_type<a class="anchor" href="#function-cass_iterator_fields_from_user_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Creates a new iterator for the specified user defined type. This can be used to iterate over fields in a user defined type.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../struct.CassIterator/">CassIterator</a> *</code></td>
+<td>
+<p>A new iterator that must be freed. NULL returned if the value is not a user defined type.</p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="../struct.CassIterator/#function-cass_iterator_free">CassIterator::cass_iterator_free</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_value_data_type" class="target">cass_value_data_type<a class="anchor" href="#function-cass_value_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the data type of a value.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td>
+<p>Returns a reference to the data type of the value. Do not free this reference as it is bound to the lifetime of the value.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int8" class="target">cass_value_get_int8<a class="anchor" href="#function-cass_value_get_int8" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets an int8 for the specified value.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise error occurred</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int16" class="target">cass_value_get_int16<a class="anchor" href="#function-cass_value_get_int16" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets an int16 for the specified value.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise error occurred</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int32" class="target">cass_value_get_int32<a class="anchor" href="#function-cass_value_get_int32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code> output <big>)</big>
     </div>
@@ -484,6 +831,57 @@
 <small>out</small> <var>output</var>
 </td>
 <td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise error occurred</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_uint32" class="target">cass_value_get_uint32<a class="anchor" href="#function-cass_value_get_uint32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets an uint32 for the specified value.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a> *</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -801,7 +1199,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_string" class="target">cass_value_get_string<a class="anchor" href="#function-cass_value_get_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../struct.CassString/">CassString</a> *</code> output <big>)</big>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code>const char **</code> output, <code>size_t *</code> output_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a string for the specified value.</p>
@@ -826,7 +1224,14 @@
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../struct.CassString/">CassString</a> *</code></td>
+<td><code>const char **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output_size</var>
+</td>
+<td><code>size_t *</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -850,7 +1255,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_bytes" class="target">cass_value_get_bytes<a class="anchor" href="#function-cass_value_get_bytes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../struct.CassBytes/">CassBytes</a> *</code> output <big>)</big>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> output, <code>size_t *</code> output_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the bytes of the specified value.</p>
@@ -875,7 +1280,14 @@
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../struct.CassBytes/">CassBytes</a> *</code></td>
+<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output_size</var>
+</td>
+<td><code>size_t *</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -899,7 +1311,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_decimal" class="target">cass_value_get_decimal<a class="anchor" href="#function-cass_value_get_decimal" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../struct.CassDecimal/">CassDecimal</a> *</code> output <big>)</big>
+</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> varint, <code>size_t *</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code> scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a decimal for the specified value.</p>
@@ -922,9 +1334,23 @@
 </tr>
 <tr>
 <td>
-<small>out</small> <var>output</var>
+<small>out</small> <var>varint</var>
 </td>
-<td><code><a href="../struct.CassDecimal/">CassDecimal</a> *</code></td>
+<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>varint_size</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>scale</var>
+</td>
+<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -1067,7 +1493,7 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
-      <code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code> <h3 id="function-cass_value_item_count" class="target">cass_value_item_count<a class="anchor" href="#function-cass_value_item_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+      <code>size_t</code> <h3 id="function-cass_value_item_count" class="target">cass_value_item_count<a class="anchor" href="#function-cass_value_item_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> collection <big>)</big>
     </div>
     <div class="panel-body function-body">
@@ -1096,7 +1522,7 @@
 <th class="details">Details</th>
 </tr></thead>
 <tbody><tr>
-<td><code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code></td>
+<td><code>size_t</code></td>
 <td>
 <p>Count of items in a collection. 0 if not a collection.</p>
 </td>

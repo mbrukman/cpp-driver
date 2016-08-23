@@ -186,6 +186,15 @@
   
   
   <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../consistency/">
       Consistency <small>page</small>
       
@@ -195,8 +204,44 @@
   
   
   <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../prepared_statements/">
       Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
       
     </a>
     
@@ -233,6 +278,10 @@
     <a href="../../configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -241,6 +290,28 @@
   <li>
     <a href="../../faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -304,42 +375,54 @@
 <h1 id="schema-metadata" class="target">Schema Metadata<a class="anchor" href="#schema-metadata" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h1>
 
-<p>The driver provides access to keyspace and table metadata. This schema metadata is monitored by the control conneciton and automatically kept up-to-date.</p>
-<pre class="highlight"><code><span class="cm">/* Create session */</span>
-
-<span class="cm">/* Get snapshot of the schema */</span>
-<span class="k">const</span> <span class="nc">CassSchema</span><span class="o">*</span> <span class="n">schema</span> <span class="o">=</span> <span class="nb">cass_session_get_schema</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
+<p>The driver provides access to keyspace and table metadata. This schema metadata
+is monitored by the control connection and automatically kept up-to-date.</p>
+<pre class="highlight"><code><span class="cm">/* Get snapshot of the schema */</span>
+<span class="k">const</span> <span class="nc">CassSchemaMeta</span><span class="o">*</span> <span class="n">schema_meta</span> <span class="o">=</span> <span class="nb">cass_session_get_schema_meta</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
 
 <span class="cm">/* Get information about the "keyspace1" schema */</span>
-<span class="k">const</span> <span class="nc">CassSchemaMeta</span><span class="o">*</span> <span class="n">keyspace1_meta</span>
-  <span class="o">=</span> <span class="nb">cass_schema_get_keyspace</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="s">"keyspace1"</span><span class="p">);</span>
+<span class="k">const</span> <span class="nc">CassKeyspaceMeta</span><span class="o">*</span> <span class="n">keyspace1_meta</span>
+  <span class="o">=</span> <span class="nb">cass_schema_meta_keyspace_by_name</span><span class="p">(</span><span class="n">schema_meta</span><span class="p">,</span> <span class="s">"keyspace1"</span><span class="p">);</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">keyspace1_meta</span> <span class="o">==</span> <span class="nx">NULL</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Handle error */</span>
 <span class="p">}</span>
 
 <span class="cm">/* Get the key-value filed for "strategy_class" */</span>
-<span class="k">const</span> <span class="nc">CassSchemaMetaField</span><span class="o">*</span> <span class="n">strategy_class_field</span> 
-  <span class="o">=</span> <span class="nb">cass_schema_meta_get_field</span><span class="p">(</span><span class="n">keyspace1_meta</span><span class="p">,</span> <span class="s">"strategy_class"</span><span class="p">);</span>
+<span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">strategy_class_value</span>
+  <span class="o">=</span> <span class="nb">cass_keyspace_meta_field_by_name</span><span class="p">(</span><span class="n">keyspace1_meta</span><span class="p">,</span> <span class="s">"strategy_class"</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">strategy_class_field</span> <span class="o">==</span> <span class="nx">NULL</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">strategy_class_value</span> <span class="o">==</span> <span class="nx">NULL</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Handle error */</span>
 <span class="p">}</span>
 
-<span class="cm">/* Get the value part of the field */</span>
-<span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">strategy_class_value</span>
-  <span class="o">=</span> <span class="nb">cass_schema_meta_field_value</span><span class="p">(</span><span class="n">strategy_class_field</span><span class="p">);</span>
-
 <span class="cm">/* Fields values use the existing cass_value*() API */</span>
-<span class="nc">CassString</span> <span class="n">strategy_class</span><span class="p">;</span>
-<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">strategy_class_value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">strategy_class</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">strategy_class</span><span class="p">;</span>
+<span class="kt">size_t</span> <span class="n">strategy_class_length</span><span class="p">;</span>
+<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="n">strategy_class_value</span><span class="p">,</span>
+                      <span class="o">&amp;</span><span class="n">strategy_class</span><span class="p">,</span>
+                      <span class="o">&amp;</span><span class="n">strategy_class_length</span><span class="p">);</span>
 
 <span class="cm">/* Do something with strategy_class */</span>
 
 <span class="cm">/* All values derived from the schema are cleaned up */</span>
-<span class="nb">cass_schema_free</span><span class="p">(</span><span class="n">schema</span><span class="p">);</span>
+<span class="nb">cass_schema_meta_free</span><span class="p">(</span><span class="n">schema_meta</span><span class="p">);</span>
 </code></pre>
-<p>The snapshot obtained by <code>cass_session_get_schema()</code> will not see schema changes that happened after the call. A new snapshot needs to be obtained to see subsequent updates to the schema.</p>
+<p>The snapshot obtained by <a href="../../../api/struct.CassSession/#cass-session-get-schema-meta"><code>cass_session_get_schema_meta()</code></a> will not see schema changes
+that happened after the call. A new snapshot needs to be obtained to see
+subsequent updates to the schema.</p>
+
+<h2 id="enabling-disabling-schema-metadata" class="target">Enabling/Disabling Schema Metadata<a class="anchor" href="#enabling-disabling-schema-metadata" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Retrieving and updating schema metadata can be enabled or disabled. It is
+enabled by default. However, some application might wish to reduce this
+overhead. This can be useful to improve the startup performance of the
+short-lived sessions or an environment where up-to-date schema metadata is
+unnecessary.</p>
+<pre class="highlight"><code><span class="cm">/* Disable schema metdata */</span>
+<span class="nb">cass_cluster_set_use_schema</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="nb">cass_false</span><span class="p">);</span>
+</code></pre>
 
 
         </div>

@@ -186,6 +186,15 @@
   
   
   <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../consistency/">
       Consistency <small>page</small>
       
@@ -195,8 +204,44 @@
   
   
   <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../prepared_statements/">
       Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
       
     </a>
     
@@ -233,6 +278,10 @@
     <a href="../../configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -241,6 +290,28 @@
   <li>
     <a href="../../faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -318,14 +389,14 @@
 
 <p>You can specify a keyspace to change to by executing a <code>USE</code> statement on a connection session object.</p>
 <pre class="highlight"><code><span class="nc">CassStatement</span> <span class="n">use_statment</span> 
-  <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"USE keyspace1"</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"USE keyspace1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">use_future</span> 
   <span class="o">=</span> <span class="nb">cass_session_execute</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">use_statement</span><span class="p">);</span>
 
 <span class="cm">/* Check future result... */</span>
 </code></pre>
-<h2 id="single-session-and-mulitple-keyspaces" class="target">Single Session and Mulitple Keyspaces<a class="anchor" href="#single-session-and-mulitple-keyspaces" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<h2 id="single-session-and-multiple-keyspaces" class="target">Single Session and Multiple Keyspaces<a class="anchor" href="#single-session-and-multiple-keyspaces" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
 <p>It is possible to interact with multiple keyspaces using a single session object by fully qualifying the table names in your queries e.g. <code>keyspace_name.table_name</code>.</p>

@@ -146,6 +146,10 @@
     <a href="configuration/">
       Configuration <small>page</small>
       
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
     </a>
     
   </li>
@@ -154,6 +158,28 @@
   <li>
     <a href="faq/">
       FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
       
     </a>
     
@@ -208,7 +234,17 @@
 <h2 id="installation" class="target">Installation<a class="anchor" href="#installation" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Binary packages are <a href="http://downloads.datastax.com/cpp-driver/">available</a> (CentOS, Ubuntu, and Windows) or the driver can be <a href="building/">built from source</a>.</p>
+<p>CentOS, Ubuntu and Windows. Packages for the dependencies, libuv (1.x) and OpenSSL, are also
+provided and can be found under the “dependencies” directory for each
+platform e.g. <a href="http://downloads.datastax.com/cpp-driver/centos/7/dependencies/">CentOS 7</a>,
+<a href="http://downloads.datastax.com/cpp-driver/ubuntu/14.04/dependencies/">Ubuntu 14.04</a>,
+<a href="http://downloads.datastax.com/cpp-driver/windows/dependencies/">Windows</a>.</p>
+
+<p><em>Note</em>: CentOS and Ubuntu use the version of OpenSSL provided with the
+distribution.</p>
+
+<p>The driver can also be <a href="building/">built from
+source</a>.</p>
 
 <h2 id="connecting" class="target">Connecting<a class="anchor" href="#connecting" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
@@ -221,7 +257,7 @@
   <span class="nc">CassSession</span><span class="o">*</span> <span class="n">session</span> <span class="o">=</span> <span class="nb">cass_session_new</span><span class="p">();</span>
 
   <span class="cm">/* Add contact points */</span>
-  <span class="nb">cass_cluster_set_contact_points</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+  <span class="nb">cass_cluster_set_contact_points</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">"127.0.0.1"</span><span class="p">);</span>
 
   <span class="cm">/* Provide the cluster object as configuration to connect the session */</span>
   <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">connect_future</span> <span class="o">=</span> <span class="nb">cass_session_connect</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">cluster</span><span class="p">);</span>
@@ -240,26 +276,24 @@
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
-<p>To connect a session, a <a href="http://datastax.github.io/cpp-driver/api/CassCluster/"><code>CassCluster</code></a> object will need to be created and configured. The minimal configuration needed to connect is a list of contact points. The contact points are used to initialize the driver and it will automatically discover the rest of the nodes in your cluster.</p>
+<p>To connect a session, a <a href="../api/struct.CassCluster/"><code>CassCluster</code></a> object will need to be created and configured. The minimal configuration needed to connect is a list of contact points. The contact points are used to initialize the driver and it will automatically discover the rest of the nodes in your cluster.</p>
 
 <p><strong>Perfomance Tip:</strong> Include more than one contact point to be robust against node failures.</p>
 
 <h2 id="futures" class="target">Futures<a class="anchor" href="#futures" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>The driver is designed so that no operation will force an application to block. Operations that would normally cause the application to block, such as connecting to a cluster or running a query, instead return a <a href="http://datastax.github.io/cpp-driver/api/CassFuture/"><code>CassFuture</code></a> object that can be waited on, polled, or used to register a callback.</p>
+<p>The driver is designed so that no operation will force an application to block. Operations that would normally cause the application to block, such as connecting to a cluster or running a query, instead return a <a href="../api/struct.CassFuture/"><code>CassFuture</code></a> object that can be waited on, polled, or used to register a callback.</p>
 
 <p><strong>NOTE:</strong> The API can also be used synchronously by waiting on or immediately attempting to get the result from a future.</p>
 
 <h2 id="executing-queries" class="target">Executing Queries<a class="anchor" href="#executing-queries" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Queries are executed using <a href="http://datastax.github.io/cpp-driver/api/CassStatement/"><code>CassStatement</code></a> objects. Statements encapsulate the query string and the query parameters. Query parameters are not supported by ealier versions of Cassandra (1.2 and below) and values need to be inlined in the query string itself.</p>
-<pre class="highlight"><code><span class="nc">CassString</span> <span class="n">insert_query</span>
-  <span class="o">=</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"INSERT INTO example (key, value) VALUES ('abc', 123)"</span><span class="p">);</span>
-
-<span class="cm">/* Create a statement with zero parameters */</span>
-<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">insert_query</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<p>Queries are executed using <a href="../api/struct.CassStatement/"><code>CassStatement</code></a> objects. Statements encapsulate the query string and the query parameters. Query parameters are not supported by earlier versions of Cassandra (1.2 and below) and values need to be inlined in the query string itself.</p>
+<pre class="highlight"><code><span class="cm">/* Create a statement with zero parameters */</span>
+<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span>
+  <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"INSERT INTO example (key, value) VALUES ('abc', 123)"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">query_future</span> <span class="o">=</span> <span class="nb">cass_session_execute</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
 
@@ -276,17 +310,15 @@
 <h2 id="parameterized-queries-positional" class="target">Parameterized Queries (Positional)<a class="anchor" href="#parameterized-queries-positional" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Cassandra 2.0+ supports the use of parameterized queries. This allows the same query string to be executed mulitple times with different values; avoiding string manipulation in your application.</p>
+<p>Cassandra 2.0+ supports the use of parameterized queries. This allows the same query string to be executed multiple times with different values; avoiding string manipulation in your application.</p>
 
-<p><strong>Perfomance Tip:</strong> If the same query is being reused mulitple times, <a href="basics/prepared_statements/">prepared statements</a> should be used to optimize performance.</p>
-<pre class="highlight"><code><span class="nc">CassString</span> <span class="n">insert_query</span>
-  <span class="o">=</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"INSERT INTO example (key, value) VALUES (?, ?)"</span><span class="p">);</span>
-
-<span class="cm">/* There are two bind variables in the query string */</span>
-<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">insert_query</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<p><strong>Perfomance Tip:</strong> If the same query is being reused multiple times, <a href="basics/prepared_statements/">prepared statements</a> should be used to optimize performance.</p>
+<pre class="highlight"><code><span class="cm">/* There are two bind variables in the query string */</span>
+<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span>
+  <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"INSERT INTO example (key, value) VALUES (?, ?)"</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
 <span class="cm">/* Bind the values using the indices of the bind variables */</span>
-<span class="nb">cass_statement_bind_string</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">cass_string_init</span><span class="p">(</span><span class="s">"abc"</span><span class="p">));</span>
+<span class="nb">cass_statement_bind_string</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
 <span class="nb">cass_statement_bind_int32</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
 
 <span class="nc">CassFuture</span><span class="o">*</span> <span class="n">query_future</span> <span class="o">=</span> <span class="nb">cass_session_execute</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
@@ -304,7 +336,7 @@
 <h2 id="handling-query-results" class="target">Handling Query Results<a class="anchor" href="#handling-query-results" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>A single row can be retrieved using the convenience function <a href="TODO"><code>cass_result_first_row()</code></a> to get the first row. A <a href="http://datastax.github.io/cpp-driver/api/CassIterator/"><code>CassIterator</code></a> object may also be used to iterate over the returned row(s).</p>
+<p>A single row can be retrieved using the convenience function <a href="../api/struct.CassResult/#cass-result-first-row"><code>cass_result_first_row()</code></a> to get the first row. A <a href="../api/struct.CassIterator/"><code>CassIterator</code></a> object may also be used to iterate over the returned row(s).</p>
 <pre class="highlight"><code><span class="cm">/* Execute "SELECT * FROM example (key, value) WHERE key = 'abc'" */</span>
 
 <span class="cm">/* This will also block until the query returns */</span>
@@ -324,16 +356,17 @@
 <span class="k">const</span> <span class="nc">CassRow</span><span class="o">*</span> <span class="n">row</span> <span class="o">=</span> <span class="nb">cass_result_first_row</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 
 <span class="cm">/* Now we can retrieve the column values from the row */</span>
-<span class="nc">CassString</span> <span class="n">key</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">;</span>
+<span class="kt">size_t</span> <span class="n">key_length</span><span class="p">;</span>
 <span class="cm">/* Get the column value of "key" by name */</span>
-<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"key"</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">);</span>
+<span class="nb">cass_value_get_string</span><span class="p">(</span><span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"key"</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key_length</span><span class="p">);</span>
 
 <span class="nb">cass_int32_t</span> <span class="n">value</span><span class="p">;</span>
 <span class="cm">/* Get the column value of "value" by name */</span>
 <span class="nb">cass_value_get_int32</span><span class="p">(</span><span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"value"</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
 
 
-<span class="cm">/* This will free the future as well as the string pointed to by the CassString 'key' */</span>
+<span class="cm">/* This will free the result as well as the string pointed to by 'key' */</span>
 <span class="nb">cass_result_free</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 </code></pre>
 <h1 id="architecture" class="target">Architecture<a class="anchor" href="#architecture" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
@@ -342,24 +375,35 @@
 <h2 id="cluster" class="target">Cluster<a class="anchor" href="#cluster" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>The <a href="http://datastax.github.io/cpp-driver/api/CassCluster/"><code>CassCluster</code></a> object describes a Cassandra cluster’s configuration. The default cluster object is good for most clusters and only requires a single or multiple list of contact points in order to establish a session connection. Once a session is connected using a cluster object its configuration is constant. Modifying the cluster object configuration once a session is established does not alter the session’s configuration.</p>
+<p>The <a href="../api/struct.CassCluster/"><code>CassCluster</code></a> object describes a Cassandra cluster’s configuration. The default cluster object is good for most clusters and only requires a single or multiple list of contact points in order to establish a session connection. Once a session is connected using a cluster object its configuration is constant. Modifying the cluster object configuration once a session is established does not alter the session’s configuration.</p>
 
 <h2 id="session" class="target">Session<a class="anchor" href="#session" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>The <a href="http://datastax.github.io/cpp-driver/api/CassSession/"><code>CassSession</code></a> object is used for query execution. Internally, a session object also manages a pool of client connections to Cassandra and uses a load balancing policy to distribute requests across those connections. An application should create a single session object per keyspace as a session object is designed to be created once, reused, and shared by multiple threads within the application. The throughput of a session can be scaled by increasing the number of I/O threads. An I/O thread is used to handle reading and writing query request data to and from Cassandra. The number of I/O threads defaults to one per CPU core, but it can be configured using <a href><code>cass_cluster_set_num_threads_io()</code></a>. It’s generally better to create a single session with more I/O threads than multiple sessions with a smaller number of I/O threads. More DataStax driver best practices can be found in this <a href="http://www.datastax.com/dev/blog/4-simple-rules-when-using-the-datastax-drivers-for-cassandra">post</a>.</p>
+<p>The <a href="../api/struct.CassSession/"><code>CassSession</code></a> object is used for query execution. Internally, a session object also manages a pool of client connections to Cassandra and uses a load balancing policy to distribute requests across those connections. An application should create a single session object per keyspace as a session object is designed to be created once, reused, and shared by multiple threads within the application. The throughput of a session can be scaled by increasing the number of I/O threads. An I/O thread is used to handle reading and writing query request data to and from Cassandra. The number of I/O threads defaults to one per CPU core, but it can be configured using <a href><code>cass_cluster_set_num_threads_io()</code></a>. It’s generally better to create a single session with more I/O threads than multiple sessions with a smaller number of I/O threads. More DataStax driver best practices can be found in this <a href="http://www.datastax.com/dev/blog/4-simple-rules-when-using-the-datastax-drivers-for-cassandra">post</a>.</p>
+
+<h2 id="asynchronous-i-o" class="target">Asynchronous I/O<a class="anchor" href="#asynchronous-i-o" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Each I/O thread maintains a small number of connections for each node in the
+Cassandra cluster and each of those connections can handle several simultaneous
+requests using pipelining. Asynchronous I/O and pipelining together allow each
+connection to handle several (up to 128 requests with protocol v1/v2 and 32k with
+protocol v3/v4) in-flight requests concurrently. This significantly reduces the
+number of connections required to be open to Cassandra and
+allows the driver to batch requests destined for the same node.</p>
 
 <h2 id="thread-safety" class="target">Thread safety<a class="anchor" href="#thread-safety" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>A <a href="http://datastax.github.io/cpp-driver/api/CassSession/"><code>CassSession</code></a> is designed to be used concurrently from multiple threads. <a href="http://datastax.github.io/cpp-driver/api/CassFuture/"><code>CassFuture</code></a> is also thread safe. Other than these exclusions, in general, functions that might modify an object’s state are <strong>NOT</strong> thread safe. Object’s that are immutable (marked ‘const’) can be read safely by multiple threads.</p>
+<p>A <a href="../api/struct.CassSession/"><code>CassSession</code></a> is designed to be used concurrently from multiple threads. <a href="../api/struct.CassFuture/"><code>CassFuture</code></a> is also thread safe. Other than these exclusions, in general, functions that might modify an object’s state are <strong>NOT</strong> thread safe. Objects that are immutable (marked ‘const’) can be read safely by multiple threads.</p>
 
-<p><strong>NOTE:</strong> The object/resource free-ing functions (e.g. cass_cluster_free, cass_session_free, … cass_*_free) cannot be called conncurently on the same instance of an object.</p>
+<p><strong>NOTE:</strong> The object/resource free-ing functions (e.g. cass_cluster_free, cass_session_free, … cass_*_free) cannot be called concurrently on the same instance of an object.</p>
 
 <h2 id="memory-handling" class="target">Memory handling<a class="anchor" href="#memory-handling" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Values such as <a href="http://datastax.github.io/cpp-driver/api/CassString/"><code>CassString</code></a> and <a href="http://datastax.github.io/cpp-driver/api/CassBytes/"><code>CassBytes</code></a> point to memory held by the result object. The lifetimes of these values are valid as long as the result object isn’t freed. These values <strong>must</strong> be copied into application memory if they need to live longer than the result object’s lifetime. Primitive types such as <a href="TODO"><code>cass_int32_t</code></a> are copied by the driver because it can be done cheaply without incurring extra allocations.</p>
+<p>Values such as strings (<code>const char*</code>),  bytes and decimals (<code>const cass_bytes_t*</code>) point to memory held by the result object. The lifetimes of these values are valid as long as the result object isn’t freed. These values <strong>must</strong> be copied into application memory if they need to live longer than the result object’s lifetime. Primitive types such as <a href="../api/cassandra.h/#cass-int32-t"><code>cass_int32_t</code></a> are copied by the driver because it can be done cheaply without incurring extra allocations.</p>
 
 <p><strong>NOTE:</strong> Advancing an iterator invalidates the value it previously returned.</p>
 
@@ -372,9 +416,7 @@
 <li>Compression</li>
 <li>Query tracing</li>
 <li>Event registration and notification</li>
-<li>Callback intefaces for load balancing, authenticaiton, reconnection and retry</li>
-<li>Generic SASL authentication interface</li>
-<li><a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/cqlRefUDType.html">User Defined Type (UDT)</a></li>
+<li>Callback interfaces for load balancing, authentication, reconnection and retry</li>
 </ul>
 
 

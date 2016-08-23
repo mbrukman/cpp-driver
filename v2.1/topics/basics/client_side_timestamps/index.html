@@ -46,7 +46,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../../">v2.4</a></li>
+                  <li><a href="../../../../topics/basics/client_side_timestamps/">v2.4</a></li>
                 
                   <li><a href="../../../../v2.3/topics/basics/client_side_timestamps/">v2.3</a></li>
                 
@@ -370,8 +370,8 @@
 more current timestamp are considered to be the most up-to-date version of that
 information. By default, timestamps are assigned by Cassandra on the
 server-side. This behavior can be overridden by configuring the driver to use a
-timestamp generator or assigning a timestamp directly to a <a href="http://datastax.github.io/cpp-driver/api/CassStatement/"><code>CassStatement</code></a> or
-<a href="http://datastax.github.io/cpp-driver/api/CassBatch/"><code>CassBatch</code></a>.</p>
+timestamp generator or assigning a timestamp directly to a <a href="../../../api/struct.CassStatement/"><code>CassStatement</code></a> or
+<a href="../../../api/struct.CassBatch/"><code>CassBatch</code></a>.</p>
 
 <h2 id="monotonically-increasing-timestamp-generator" class="target">Monotonically Increasing Timestamp Generator<a class="anchor" href="#monotonically-increasing-timestamp-generator" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
@@ -402,8 +402,8 @@ timestamp generator.</p>
 <h2 id="per-statement-batch-timestamps" class="target">Per Statement/Batch timestamps<a class="anchor" href="#per-statement-batch-timestamps" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Timestamps can also be assigned to individuals <a href="http://datastax.github.io/cpp-driver/api/CassStatement/"><code>CassStatement</code></a> or
-<a href="http://datastax.github.io/cpp-driver/api/CassBatch/"><code>CassBatch</code></a> requests.</p>
+<p>Timestamps can also be assigned to individuals <a href="../../../api/struct.CassStatement/"><code>CassStatement</code></a> or
+<a href="../../../api/struct.CassBatch/"><code>CassBatch</code></a> requests.</p>
 <pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"INSERT INTO * ..."</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
 <span class="cm">/* Add a timestamp to the statement */</span>
