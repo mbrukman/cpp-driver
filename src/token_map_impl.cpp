@@ -105,6 +105,7 @@ RandomPartitioner::Token RandomPartitioner::hash(const StringRef& str) {
   hash.update(reinterpret_cast<const uint8_t*>(str.data()), str.size());
   Token token;
   hash.final(&token.hi, &token.lo);
+  token.hi &= 0x7fffffffffffffffULL; // Range [1, 2^127 - 1]
   return token;
 }
 
